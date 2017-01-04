@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RepositorySearchViewController.swift
 //  ios-clean-architecture-sample
 //
 //  Created by KAGE on 1/4/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RepositorySearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
