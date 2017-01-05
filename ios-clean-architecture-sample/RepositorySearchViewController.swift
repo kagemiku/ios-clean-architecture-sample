@@ -9,10 +9,18 @@
 import UIKit
 
 class RepositorySearchViewController: UIViewController {
+    fileprivate lazy var repositoryTableView: UITableView = {
+        var tableViewFrame = self.view.frame
+        tableViewFrame.origin.y += UIApplication.shared.statusBarFrame.height
+
+        let tableView = UITableView(frame: tableViewFrame)
+        return tableView
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        view.addSubview(repositoryTableView)
     }
 
     override func didReceiveMemoryWarning() {
