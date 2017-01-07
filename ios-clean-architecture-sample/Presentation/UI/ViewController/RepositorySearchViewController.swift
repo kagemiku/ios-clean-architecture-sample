@@ -10,9 +10,7 @@ import UIKit
 
 class RepositorySearchViewController: UIViewController {
     fileprivate lazy var repositoryTableView: UITableView = {
-        var tableViewFrame = self.view.frame
-        tableViewFrame.origin.y += UIApplication.shared.statusBarFrame.height
-
+        let tableViewFrame = self.view.frame
         let tableView = UITableView(frame: tableViewFrame)
         return tableView
     }()
