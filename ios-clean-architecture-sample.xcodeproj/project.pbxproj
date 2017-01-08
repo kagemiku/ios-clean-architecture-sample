@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		105518651E21291300079648 /* RepositorySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518641E21291300079648 /* RepositorySearchViewController.swift */; };
 		105518671E2129C300079648 /* RepositorySearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518661E2129C300079648 /* RepositorySearchBuilder.swift */; };
+		105518691E21F7E000079648 /* RepositoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518681E21F7E000079648 /* RepositoriesModel.swift */; };
 		107777711E1D3654004E3115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107777701E1D3654004E3115 /* AppDelegate.swift */; };
 		107777781E1D3654004E3115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107777771E1D3654004E3115 /* Assets.xcassets */; };
 		1077777B1E1D3654004E3115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107777791E1D3654004E3115 /* LaunchScreen.storyboard */; };
@@ -17,6 +18,7 @@
 /* Begin PBXFileReference section */
 		105518641E21291300079648 /* RepositorySearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositorySearchViewController.swift; path = Presentation/UI/ViewController/RepositorySearchViewController.swift; sourceTree = "<group>"; };
 		105518661E2129C300079648 /* RepositorySearchBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositorySearchBuilder.swift; path = Application/Builder/RepositorySearchBuilder.swift; sourceTree = "<group>"; };
+		105518681E21F7E000079648 /* RepositoriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoriesModel.swift; path = Domain/Model/RepositoriesModel.swift; sourceTree = "<group>"; };
 		1077776D1E1D3654004E3115 /* ios-clean-architecture-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-clean-architecture-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		107777701E1D3654004E3115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		107777771E1D3654004E3115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,6 +193,7 @@
 		107777911E1D39E2004E3115 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				105518681E21F7E000079648 /* RepositoriesModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				105518651E21291300079648 /* RepositorySearchViewController.swift in Sources */,
 				105518671E2129C300079648 /* RepositorySearchBuilder.swift in Sources */,
 				107777711E1D3654004E3115 /* AppDelegate.swift in Sources */,
+				105518691E21F7E000079648 /* RepositoriesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
