@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		105518651E21291300079648 /* RepositorySearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518641E21291300079648 /* RepositorySearchViewController.swift */; };
-		105518671E2129C300079648 /* RepositorySearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518661E2129C300079648 /* RepositorySearchBuilder.swift */; };
+		105518651E21291300079648 /* RepositoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518641E21291300079648 /* RepositoryTableViewController.swift */; };
+		105518671E2129C300079648 /* RepositoryTableViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518661E2129C300079648 /* RepositoryTableViewControllerBuilder.swift */; };
 		105518691E21F7E000079648 /* RepositoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518681E21F7E000079648 /* RepositoriesModel.swift */; };
 		107777711E1D3654004E3115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107777701E1D3654004E3115 /* AppDelegate.swift */; };
 		107777781E1D3654004E3115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107777771E1D3654004E3115 /* Assets.xcassets */; };
@@ -16,8 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		105518641E21291300079648 /* RepositorySearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositorySearchViewController.swift; path = Presentation/UI/ViewController/RepositorySearchViewController.swift; sourceTree = "<group>"; };
-		105518661E2129C300079648 /* RepositorySearchBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositorySearchBuilder.swift; path = Application/Builder/RepositorySearchBuilder.swift; sourceTree = "<group>"; };
+		105518641E21291300079648 /* RepositoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryTableViewController.swift; path = Presentation/UI/ViewController/RepositoryTableViewController.swift; sourceTree = "<group>"; };
+		105518661E2129C300079648 /* RepositoryTableViewControllerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryTableViewControllerBuilder.swift; path = Application/Builder/RepositoryTableViewControllerBuilder.swift; sourceTree = "<group>"; };
 		105518681E21F7E000079648 /* RepositoriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoriesModel.swift; path = Domain/Model/RepositoriesModel.swift; sourceTree = "<group>"; };
 		1077776D1E1D3654004E3115 /* ios-clean-architecture-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-clean-architecture-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		107777701E1D3654004E3115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		107777881E1D3993004E3115 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				105518661E2129C300079648 /* RepositorySearchBuilder.swift */,
+				105518661E2129C300079648 /* RepositoryTableViewControllerBuilder.swift */,
 			);
 			name = Builder;
 			sourceTree = "<group>";
@@ -149,7 +149,7 @@
 		1077778B1E1D39B7004E3115 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				105518641E21291300079648 /* RepositorySearchViewController.swift */,
+				105518641E21291300079648 /* RepositoryTableViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -290,8 +290,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				105518651E21291300079648 /* RepositorySearchViewController.swift in Sources */,
-				105518671E2129C300079648 /* RepositorySearchBuilder.swift in Sources */,
+				105518651E21291300079648 /* RepositoryTableViewController.swift in Sources */,
+				105518671E2129C300079648 /* RepositoryTableViewControllerBuilder.swift in Sources */,
 				107777711E1D3654004E3115 /* AppDelegate.swift in Sources */,
 				105518691E21F7E000079648 /* RepositoriesModel.swift in Sources */,
 			);

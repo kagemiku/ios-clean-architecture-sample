@@ -8,9 +8,9 @@
 
 import UIKit
 
-final class RepositorySearchBuilder {
+final class RepositoryTableViewControllerBuilder {
     static func build() -> UIViewController {
-        let viewController = RepositorySearchViewController()
+        let viewController = RepositoryTableViewController()
 
         return viewController
     }

@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let rootVC = RepositorySearchBuilder.build()
+        let rootVC = RepositoryTableViewControllerBuilder.build()
         let navigationVC = UINavigationController(rootViewController: rootVC)
 
         window = UIWindow.init(frame: UIScreen.main.bounds)

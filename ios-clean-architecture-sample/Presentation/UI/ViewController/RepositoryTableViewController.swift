@@ -1,5 +1,5 @@
 //
-//  RepositorySearchViewController.swift
+//  RepositoryTableViewController.swift
 //  ios-clean-architecture-sample
 //
 //  Created by KAGE on 1/4/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositorySearchViewController: UIViewController {
+class RepositoryTableViewController: UIViewController {
     fileprivate lazy var repositoryTableView: UITableView = {
         let tableViewFrame = self.view.frame
         let tableView = UITableView(frame: tableViewFrame)
