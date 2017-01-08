@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let rootVC = RepositoryTableViewControllerBuilder.build()
         let navigationVC = UINavigationController(rootViewController: rootVC)
 
-        window = UIWindow.init(frame: UIScreen.main.bounds)
-        window?.rootViewController = navigationVC
-        window?.makeKeyAndVisible()
+        self.window = UIWindow.init(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = navigationVC
+        self.window?.makeKeyAndVisible()
 
         return true
     }

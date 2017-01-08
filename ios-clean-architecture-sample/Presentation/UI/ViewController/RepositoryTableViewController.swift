@@ -9,16 +9,18 @@
 import UIKit
 
 class RepositoryTableViewController: UIViewController {
-    fileprivate lazy var repositoryTableView: UITableView = {
-        let tableViewFrame = self.view.frame
-        let tableView = UITableView(frame: tableViewFrame)
-        return tableView
-    }()
+    fileprivate lazy var repositoryTableView: UITableView = self.createRepositoryTableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(repositoryTableView)
+        self.view.addSubview(repositoryTableView)
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        self.layoutRepositoryTableView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,6 +28,14 @@ class RepositoryTableViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    private func createRepositoryTableView() -> UITableView {
+        let tableView = UITableView(frame: CGRect.zero)
+        return tableView
+    }
 
+    private func layoutRepositoryTableView() {
+        let frame = self.view.frame
+        self.repositoryTableView.frame = frame
+    }
 }
 
