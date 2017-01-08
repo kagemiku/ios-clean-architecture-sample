@@ -84,7 +84,7 @@ extension GitHubRepositoryTableViewController: UITableViewDelegate { }
 
 
 // MARK: - GitHubRepositoryPresenterDelegate
-extension GitHubRepositoryTableViewController: GitHubRepositoryPresenterInputDelegate {
+extension GitHubRepositoryTableViewController: GitHubRepositoryPresenterInput {
     func setRepositoriesModel(_ repositoriesModel: RepositoriesModel) {
         self.repositories = repositoriesModel.repositories
         self.repositoryTableView.reloadData()

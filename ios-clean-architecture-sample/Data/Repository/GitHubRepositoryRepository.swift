@@ -8,29 +8,33 @@
 
 import Foundation
 
-protocol GitHubRepositoryRepositoryInputDelegate: class {
-    func repository(_ repository: GitHubRepositoryRepository, didLoadRepositories repositories: [GitHubRepositoryEntity])
+protocol GitHubRepositoryRepository: class {
+    func dataStore(_ dataStore: GitHubRepositoryRepositoryInput, didLoadRepositories repositories: [GitHubRepositoryEntity])
 }
 
-class GitHubRepositoryRepository {
-    fileprivate let dataStore: GitHubRepositoryDataStore
-    fileprivate weak var useCase: GitHubRepositoryRepositoryInputDelegate?
+protocol GitHubRepositoryRepositoryInput: class {
+    func loadRepositories(repositoryName: String)
+}
 
-    init(dataStore: GitHubRepositoryDataStore) {
+class GitHubRepositoryRepositoryImpl: GitHubRepositoryRepository {
+    fileprivate let dataStore: GitHubRepositoryRepositoryInput
+    fileprivate weak var useCase: GitHubRepositoryUseCase?
+
+    init(dataStore: GitHubRepositoryRepositoryInput) {
         self.dataStore = dataStore
     }
 
-    func inject(useCase: GitHubRepositoryRepositoryInputDelegate) {
+    func inject(useCase: GitHubRepositoryUseCase) {
         self.useCase = useCase
     }
 
-    func loadRepositories(repositoryName: String) {
-        dataStore.loadRepositories(repositoryName: repositoryName)
+    func dataStore(_ dataStore: GitHubRepositoryRepositoryInput, didLoadRepositories repositories: [GitHubRepositoryEntity]) {
+        self.useCase?.repository(self, didLoadRepositories: repositories)
     }
 }
 
-extension GitHubRepositoryRepository: GitHubRepositoryDataStoreInputDelegate {
-    func dataStore(_ dataStore: GitHubRepositoryDataStore, didLoadRepositories repositories: [GitHubRepositoryEntity]) {
-        self.useCase?.repository(self, didLoadRepositories: repositories)
+extension GitHubRepositoryRepositoryImpl: GitHubRepositoryUseCaseDataInput {
+    func loadRepositories(repositoryName: String) {
+        self.dataStore.loadRepositories(repositoryName: repositoryName)
     }
 }

@@ -8,29 +8,36 @@
 
 import Foundation
 
-protocol GitHubRepositoryUseCaseInputDelegate: class {
+protocol GitHubRepositoryUseCase: class {
+    func loadRepositories(repositoryName: String)
+    func repository(_ repository: GitHubRepositoryUseCaseDataInput, didLoadRepositories repositories: [GitHubRepositoryEntity])
+}
+
+protocol GitHubRepositoryUseCasePresentationInput: class {
     func useCase(_ useCase: GitHubRepositoryUseCase, didLoadRepositories repositories: RepositoriesModel)
 }
 
-class GitHubRepositoryUseCase {
-    fileprivate let repository: GitHubRepositoryRepository
-    fileprivate weak var presenter: GitHubRepositoryUseCaseInputDelegate?
+protocol GitHubRepositoryUseCaseDataInput: class {
+    func loadRepositories(repositoryName: String)
+}
 
-    init(repository: GitHubRepositoryRepository) {
+class GitHubRepositoryUseCaseImpl: GitHubRepositoryUseCase {
+    fileprivate let repository: GitHubRepositoryUseCaseDataInput
+    fileprivate weak var presenter: GitHubRepositoryUseCasePresentationInput?
+
+    init(repository: GitHubRepositoryUseCaseDataInput) {
         self.repository = repository
     }
 
-    func inject(presenter: GitHubRepositoryUseCaseInputDelegate) {
+    func inject(presenter: GitHubRepositoryUseCasePresentationInput) {
         self.presenter = presenter
     }
 
     func loadRepositories(repositoryName: String) {
-        repository.loadRepositories(repositoryName: repositoryName)
+        self.repository.loadRepositories(repositoryName: repositoryName)
     }
-}
 
-extension GitHubRepositoryUseCase: GitHubRepositoryRepositoryInputDelegate {
-    func repository(_ repository: GitHubRepositoryRepository, didLoadRepositories repositories: [GitHubRepositoryEntity]) {
+    func repository(_ repository: GitHubRepositoryUseCaseDataInput, didLoadRepositories repositories: [GitHubRepositoryEntity]) {
         let repositoriesModel = GitHubRepositoryTranslator.translate(repositories)
         self.presenter?.useCase(self, didLoadRepositories: repositoriesModel)
     }

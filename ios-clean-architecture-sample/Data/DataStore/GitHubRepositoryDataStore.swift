@@ -8,17 +8,17 @@
 
 import Foundation
 
-protocol GitHubRepositoryDataStoreInputDelegate: class {
-    func dataStore(_ dataStore: GitHubRepositoryDataStore, didLoadRepositories repositories: [GitHubRepositoryEntity])
-}
+protocol GitHubRepositoryDataStore: class { }
 
-class GitHubRepositoryDataStore {
-    fileprivate weak var repository: GitHubRepositoryDataStoreInputDelegate?
+class GitHubRepositoryDataStoreImpl: GitHubRepositoryDataStore {
+    fileprivate weak var repository: GitHubRepositoryRepository?
 
-    func inject(repository: GitHubRepositoryDataStoreInputDelegate) {
+    func inject(repository: GitHubRepositoryRepository) {
         self.repository = repository
     }
+}
 
+extension GitHubRepositoryDataStoreImpl: GitHubRepositoryRepositoryInput {
     func loadRepositories(repositoryName: String) {
         let repo1 = GitHubRepositoryEntity(id: 1, full_name: "repo1")
         let repo2 = GitHubRepositoryEntity(id: 2, full_name: "repo2")

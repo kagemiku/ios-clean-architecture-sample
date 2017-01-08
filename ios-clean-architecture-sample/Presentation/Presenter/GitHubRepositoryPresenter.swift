@@ -8,19 +8,23 @@
 
 import Foundation
 
-protocol GitHubRepositoryPresenterInputDelegate: class {
+protocol GitHubRepositoryPresenter: class {
+    func loadRepositories(repositoryName: String)
+}
+
+protocol GitHubRepositoryPresenterInput: class {
     func setRepositoriesModel(_ repositoriesModel: RepositoriesModel)
 }
 
-class GitHubRepositoryPresenter {
+class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
     fileprivate let useCase: GitHubRepositoryUseCase
-    fileprivate weak var viewController: GitHubRepositoryPresenterInputDelegate?
+    fileprivate weak var viewController: GitHubRepositoryPresenterInput?
 
     init(useCase: GitHubRepositoryUseCase) {
         self.useCase = useCase
     }
 
-    func inject(viewController: GitHubRepositoryPresenterInputDelegate) {
+    func inject(viewController: GitHubRepositoryPresenterInput) {
         self.viewController = viewController
     }
 
@@ -29,7 +33,7 @@ class GitHubRepositoryPresenter {
     }
 }
 
-extension GitHubRepositoryPresenter: GitHubRepositoryUseCaseInputDelegate {
+extension GitHubRepositoryPresenterImpl: GitHubRepositoryUseCasePresentationInput {
     func useCase(_ useCase: GitHubRepositoryUseCase, didLoadRepositories repositories: RepositoriesModel) {
         self.viewController?.setRepositoriesModel(repositories)
     }

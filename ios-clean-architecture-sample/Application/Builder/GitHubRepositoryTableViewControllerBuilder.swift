@@ -10,10 +10,10 @@ import UIKit
 
 final class GitHubRepositoryTableViewControllerBuilder {
     static func build() -> UIViewController {
-        let dataStore = GitHubRepositoryDataStore()
-        let repository = GitHubRepositoryRepository(dataStore: dataStore)
-        let useCase = GitHubRepositoryUseCase(repository: repository)
-        let presenter = GitHubRepositoryPresenter(useCase: useCase)
+        let dataStore      = GitHubRepositoryDataStoreImpl()
+        let repository     = GitHubRepositoryRepositoryImpl(dataStore: dataStore)
+        let useCase        = GitHubRepositoryUseCaseImpl(repository: repository)
+        let presenter      = GitHubRepositoryPresenterImpl(useCase: useCase)
         let viewController = GitHubRepositoryTableViewController()
 
         dataStore.inject(repository: repository)
