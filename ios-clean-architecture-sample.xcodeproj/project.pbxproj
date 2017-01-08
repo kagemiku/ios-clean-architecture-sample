@@ -181,16 +181,16 @@
 		1077778F1E1D39D7004E3115 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				107777901E1D39DD004E3115 /* Translater */,
+				107777901E1D39DD004E3115 /* Translator */,
 			);
 			name = UseCase;
 			sourceTree = "<group>";
 		};
-		107777901E1D39DD004E3115 /* Translater */ = {
+		107777901E1D39DD004E3115 /* Translator */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Translater;
+			name = Translator;
 			sourceTree = "<group>";
 		};
 		107777911E1D39E2004E3115 /* Model */ = {
