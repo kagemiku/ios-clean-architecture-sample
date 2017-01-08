@@ -1,5 +1,5 @@
 //
-//  RepositoryTableViewCell.swift
+//  GitHubRepositoryTableViewCell.swift
 //  ios-clean-architecture-sample
 //
 //  Created by KAGE on 1/8/17.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-class RepositoryTableViewCell: UITableViewCell {
-    static let cellIdentifier = String(describing: RepositoryTableViewCell.self)
+class GitHubRepositoryTableViewCell: UITableViewCell {
+    static let cellIdentifier = String(describing: GitHubRepositoryTableViewCell.self)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +22,7 @@ class RepositoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(_ model: RepositoryModel) {
+    func configure(_ model: GitHubRepositoryModel) {
         self.textLabel?.text = model.repositoryName
     }
 }

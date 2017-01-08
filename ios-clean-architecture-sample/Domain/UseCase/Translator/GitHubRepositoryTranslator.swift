@@ -1,5 +1,5 @@
 //
-//  RepositoryTranslator.swift
+//  GitHubRepositoryTranslator.swift
 //  ios-clean-architecture-sample
 //
 //  Created by KAGE on 1/8/17.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-final class RepositoryTranslator {
-    static func translate(_ entity: [RepositoryEntity]) -> RepositoriesModel {
+final class GitHubRepositoryTranslator {
+    static func translate(_ entity: [GitHubRepositoryEntity]) -> RepositoriesModel {
         let repositories = entity.map {
-            RepositoryModel(repositoryName: $0.full_name)
+            GitHubRepositoryModel(repositoryName: $0.full_name)
         }
 
         return RepositoriesModel(repositories: repositories)

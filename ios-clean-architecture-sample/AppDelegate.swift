@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let rootVC = RepositoryTableViewControllerBuilder.build()
+        let rootVC = GitHubRepositoryTableViewControllerBuilder.build()
         let navigationVC = UINavigationController(rootViewController: rootVC)
 
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
@@ -49,4 +49,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

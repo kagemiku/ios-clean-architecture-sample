@@ -9,10 +9,10 @@
 import Foundation
 
 struct RepositoriesModel {
-    var repositories: [RepositoryModel] = []
+    var repositories: [GitHubRepositoryModel] = []
 }
 
-struct RepositoryModel {
+struct GitHubRepositoryModel {
     let repositoryName: String
 
     init(repositoryName: String) {

@@ -7,34 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		105518651E21291300079648 /* RepositoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518641E21291300079648 /* RepositoryTableViewController.swift */; };
-		105518671E2129C300079648 /* RepositoryTableViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518661E2129C300079648 /* RepositoryTableViewControllerBuilder.swift */; };
-		105518691E21F7E000079648 /* RepositoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518681E21F7E000079648 /* RepositoriesModel.swift */; };
-		1055186B1E21FA3100079648 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055186A1E21FA3100079648 /* RepositoryTableViewCell.swift */; };
-		1055186D1E2211CE00079648 /* RepositoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055186C1E2211CE00079648 /* RepositoryPresenter.swift */; };
-		1055186F1E2213DC00079648 /* RepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055186E1E2213DC00079648 /* RepositoryUseCase.swift */; };
-		105518711E22199000079648 /* RepositoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518701E22199000079648 /* RepositoryRepository.swift */; };
-		105518731E2219AE00079648 /* RepositoryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518721E2219AE00079648 /* RepositoryDataStore.swift */; };
-		105518751E221A7400079648 /* RepositoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518741E221A7400079648 /* RepositoryEntity.swift */; };
-		105518771E222CD800079648 /* RepositoryTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518761E222CD800079648 /* RepositoryTranslator.swift */; };
+		105518651E21291300079648 /* GitHubRepositoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518641E21291300079648 /* GitHubRepositoryTableViewController.swift */; };
+		105518671E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518661E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift */; };
+		105518691E21F7E000079648 /* GitHubRepositoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518681E21F7E000079648 /* GitHubRepositoriesModel.swift */; };
+		1055186B1E21FA3100079648 /* GitHubRepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055186A1E21FA3100079648 /* GitHubRepositoryTableViewCell.swift */; };
+		1055186D1E2211CE00079648 /* GitHubRepositoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055186C1E2211CE00079648 /* GitHubRepositoryPresenter.swift */; };
+		1055186F1E2213DC00079648 /* GitHubRepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055186E1E2213DC00079648 /* GitHubRepositoryUseCase.swift */; };
+		105518711E22199000079648 /* GitHubRepositoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518701E22199000079648 /* GitHubRepositoryRepository.swift */; };
+		105518731E2219AE00079648 /* GitHubRepositoryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518721E2219AE00079648 /* GitHubRepositoryDataStore.swift */; };
+		105518751E221A7400079648 /* GitHubRepositoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518741E221A7400079648 /* GitHubRepositoryEntity.swift */; };
+		105518771E222CD800079648 /* GitHubRepositoryTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518761E222CD800079648 /* GitHubRepositoryTranslator.swift */; };
 		107777711E1D3654004E3115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107777701E1D3654004E3115 /* AppDelegate.swift */; };
 		107777781E1D3654004E3115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107777771E1D3654004E3115 /* Assets.xcassets */; };
 		1077777B1E1D3654004E3115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107777791E1D3654004E3115 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		105518641E21291300079648 /* RepositoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryTableViewController.swift; path = Presentation/UI/ViewController/RepositoryTableViewController.swift; sourceTree = "<group>"; };
-		105518661E2129C300079648 /* RepositoryTableViewControllerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryTableViewControllerBuilder.swift; path = Application/Builder/RepositoryTableViewControllerBuilder.swift; sourceTree = "<group>"; };
-		105518681E21F7E000079648 /* RepositoriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoriesModel.swift; path = Domain/Model/RepositoriesModel.swift; sourceTree = "<group>"; };
-		1055186A1E21FA3100079648 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryTableViewCell.swift; path = Presentation/UI/Cell/RepositoryTableViewCell.swift; sourceTree = "<group>"; };
-		1055186C1E2211CE00079648 /* RepositoryPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryPresenter.swift; path = Presentation/Presenter/RepositoryPresenter.swift; sourceTree = "<group>"; };
-		1055186E1E2213DC00079648 /* RepositoryUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryUseCase.swift; path = Domain/UseCase/RepositoryUseCase.swift; sourceTree = "<group>"; };
-		105518701E22199000079648 /* RepositoryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryRepository.swift; path = Domain/Repository/RepositoryRepository.swift; sourceTree = "<group>"; };
-		105518721E2219AE00079648 /* RepositoryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryDataStore.swift; path = Data/DataStore/RepositoryDataStore.swift; sourceTree = "<group>"; };
-		105518741E221A7400079648 /* RepositoryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryEntity.swift; path = Data/Entity/RepositoryEntity.swift; sourceTree = "<group>"; };
-		105518761E222CD800079648 /* RepositoryTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryTranslator.swift; path = Domain/UseCase/Translator/RepositoryTranslator.swift; sourceTree = "<group>"; };
+		105518641E21291300079648 /* GitHubRepositoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryTableViewController.swift; path = Presentation/UI/ViewController/GitHubRepositoryTableViewController.swift; sourceTree = "<group>"; };
+		105518661E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryTableViewControllerBuilder.swift; path = Application/Builder/GitHubRepositoryTableViewControllerBuilder.swift; sourceTree = "<group>"; };
+		105518681E21F7E000079648 /* GitHubRepositoriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = GitHubRepositoriesModel.swift; path = Domain/Model/GitHubRepositoriesModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1055186A1E21FA3100079648 /* GitHubRepositoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryTableViewCell.swift; path = Presentation/UI/Cell/GitHubRepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		1055186C1E2211CE00079648 /* GitHubRepositoryPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = GitHubRepositoryPresenter.swift; path = Presentation/Presenter/GitHubRepositoryPresenter.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1055186E1E2213DC00079648 /* GitHubRepositoryUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryUseCase.swift; path = Domain/UseCase/GitHubRepositoryUseCase.swift; sourceTree = "<group>"; };
+		105518701E22199000079648 /* GitHubRepositoryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = GitHubRepositoryRepository.swift; path = Domain/Repository/GitHubRepositoryRepository.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		105518721E2219AE00079648 /* GitHubRepositoryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = GitHubRepositoryDataStore.swift; path = Data/DataStore/GitHubRepositoryDataStore.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		105518741E221A7400079648 /* GitHubRepositoryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = GitHubRepositoryEntity.swift; path = Data/Entity/GitHubRepositoryEntity.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		105518761E222CD800079648 /* GitHubRepositoryTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryTranslator.swift; path = Domain/UseCase/Translator/GitHubRepositoryTranslator.swift; sourceTree = "<group>"; };
 		1077776D1E1D3654004E3115 /* ios-clean-architecture-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-clean-architecture-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		107777701E1D3654004E3115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		107777701E1D3654004E3115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		107777771E1D3654004E3115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1077777A1E1D3654004E3115 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1077777C1E1D3654004E3115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		107777881E1D3993004E3115 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
-				105518661E2129C300079648 /* RepositoryTableViewControllerBuilder.swift */,
+				105518661E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift */,
 			);
 			name = Builder;
 			sourceTree = "<group>";
@@ -156,7 +156,7 @@
 		1077778A1E1D39A0004E3115 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				1055186C1E2211CE00079648 /* RepositoryPresenter.swift */,
+				1055186C1E2211CE00079648 /* GitHubRepositoryPresenter.swift */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
@@ -164,7 +164,7 @@
 		1077778B1E1D39B7004E3115 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				105518641E21291300079648 /* RepositoryTableViewController.swift */,
+				105518641E21291300079648 /* GitHubRepositoryTableViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -172,7 +172,7 @@
 		1077778C1E1D39BE004E3115 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				1055186A1E21FA3100079648 /* RepositoryTableViewCell.swift */,
+				1055186A1E21FA3100079648 /* GitHubRepositoryTableViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 		1077778E1E1D39D0004E3115 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				105518701E22199000079648 /* RepositoryRepository.swift */,
+				105518701E22199000079648 /* GitHubRepositoryRepository.swift */,
 			);
 			name = Repository;
 			sourceTree = "<group>";
@@ -195,7 +195,7 @@
 		1077778F1E1D39D7004E3115 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				1055186E1E2213DC00079648 /* RepositoryUseCase.swift */,
+				1055186E1E2213DC00079648 /* GitHubRepositoryUseCase.swift */,
 				107777901E1D39DD004E3115 /* Translator */,
 			);
 			name = UseCase;
@@ -204,7 +204,7 @@
 		107777901E1D39DD004E3115 /* Translator */ = {
 			isa = PBXGroup;
 			children = (
-				105518761E222CD800079648 /* RepositoryTranslator.swift */,
+				105518761E222CD800079648 /* GitHubRepositoryTranslator.swift */,
 			);
 			name = Translator;
 			sourceTree = "<group>";
@@ -212,7 +212,7 @@
 		107777911E1D39E2004E3115 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				105518681E21F7E000079648 /* RepositoriesModel.swift */,
+				105518681E21F7E000079648 /* GitHubRepositoriesModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 		107777921E1D39EB004E3115 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				105518741E221A7400079648 /* RepositoryEntity.swift */,
+				105518741E221A7400079648 /* GitHubRepositoryEntity.swift */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -228,7 +228,7 @@
 		107777931E1D39F5004E3115 /* DataStore */ = {
 			isa = PBXGroup;
 			children = (
-				105518721E2219AE00079648 /* RepositoryDataStore.swift */,
+				105518721E2219AE00079648 /* GitHubRepositoryDataStore.swift */,
 			);
 			name = DataStore;
 			sourceTree = "<group>";
@@ -311,17 +311,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				105518771E222CD800079648 /* RepositoryTranslator.swift in Sources */,
-				105518651E21291300079648 /* RepositoryTableViewController.swift in Sources */,
-				105518671E2129C300079648 /* RepositoryTableViewControllerBuilder.swift in Sources */,
-				1055186D1E2211CE00079648 /* RepositoryPresenter.swift in Sources */,
+				105518771E222CD800079648 /* GitHubRepositoryTranslator.swift in Sources */,
+				105518651E21291300079648 /* GitHubRepositoryTableViewController.swift in Sources */,
+				105518671E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift in Sources */,
+				1055186D1E2211CE00079648 /* GitHubRepositoryPresenter.swift in Sources */,
 				107777711E1D3654004E3115 /* AppDelegate.swift in Sources */,
-				1055186F1E2213DC00079648 /* RepositoryUseCase.swift in Sources */,
-				105518711E22199000079648 /* RepositoryRepository.swift in Sources */,
-				105518751E221A7400079648 /* RepositoryEntity.swift in Sources */,
-				105518731E2219AE00079648 /* RepositoryDataStore.swift in Sources */,
-				1055186B1E21FA3100079648 /* RepositoryTableViewCell.swift in Sources */,
-				105518691E21F7E000079648 /* RepositoriesModel.swift in Sources */,
+				1055186F1E2213DC00079648 /* GitHubRepositoryUseCase.swift in Sources */,
+				105518711E22199000079648 /* GitHubRepositoryRepository.swift in Sources */,
+				105518751E221A7400079648 /* GitHubRepositoryEntity.swift in Sources */,
+				105518731E2219AE00079648 /* GitHubRepositoryDataStore.swift in Sources */,
+				1055186B1E21FA3100079648 /* GitHubRepositoryTableViewCell.swift in Sources */,
+				105518691E21F7E000079648 /* GitHubRepositoriesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

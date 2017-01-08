@@ -1,5 +1,5 @@
 //
-//  RepositorySearchBuilder.swift
+//  GitHubRepositorySearchBuilder.swift
 //  ios-clean-architecture-sample
 //
 //  Created by KAGE on 1/7/17.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-final class RepositoryTableViewControllerBuilder {
+final class GitHubRepositoryTableViewControllerBuilder {
     static func build() -> UIViewController {
-        let dataStore = RepositoryDataStore()
-        let repository = RepositoryRepository(dataStore: dataStore)
-        let useCase = RepositoryUseCase(repository: repository)
-        let presenter = RepositoryPresenter(useCase: useCase)
-        let viewController = RepositoryTableViewController()
+        let dataStore = GitHubRepositoryDataStore()
+        let repository = GitHubRepositoryRepository(dataStore: dataStore)
+        let useCase = GitHubRepositoryUseCase(repository: repository)
+        let presenter = GitHubRepositoryPresenter(useCase: useCase)
+        let viewController = GitHubRepositoryTableViewController()
 
         dataStore.inject(repository: repository)
         repository.inject(useCase: useCase)

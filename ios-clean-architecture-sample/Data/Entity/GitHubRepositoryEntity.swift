@@ -1,5 +1,5 @@
 //
-//  RepositoryEntity.swift
+//  GitHubRepositoryEntity.swift
 //  ios-clean-architecture-sample
 //
 //  Created by KAGE on 1/8/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RepositoryEntity {
+struct GitHubRepositoryEntity {
     var id = 0
     var full_name = ""
 }
