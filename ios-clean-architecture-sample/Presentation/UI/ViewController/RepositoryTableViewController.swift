@@ -11,6 +11,7 @@ import UIKit
 class RepositoryTableViewController: UIViewController {
     fileprivate lazy var repositoryTableView: UITableView = self.createRepositoryTableView()
 
+    fileprivate var presenter: RepositoryPresenter? = nil
     fileprivate var repositories: [RepositoryModel] = []
 
     override func viewDidLoad() {
@@ -22,6 +23,7 @@ class RepositoryTableViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Load", style: .plain, target: self, action: #selector(self.loadRepositories(sender:)))
 
         self.layoutRepositoryTableView()
     }
@@ -29,6 +31,10 @@ class RepositoryTableViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func inject(presenter: RepositoryPresenter) {
+        self.presenter = presenter
     }
 
     private func createRepositoryTableView() -> UITableView {
@@ -50,6 +56,11 @@ class RepositoryTableViewController: UIViewController {
         repositories.append(RepositoryModel(repositoryName: "Test2"))
         repositories.append(RepositoryModel(repositoryName: "Test3"))
     }
+
+    // TODO: Test Code
+    func loadRepositories(sender: AnyObject) {
+        presenter?.loadRepositories(repositoryName: "")
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -70,3 +81,12 @@ extension RepositoryTableViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension RepositoryTableViewController: UITableViewDelegate { }
+
+
+// MARK: - RepositoryPresenterDelegate
+extension RepositoryTableViewController: RepositoryPresenterInputDelegate {
+    func setRepositoriesModel(_ repositoriesModel: RepositoriesModel) {
+        self.repositories = repositoriesModel.repositories
+        self.repositoryTableView.reloadData()
+    }
+}
