@@ -11,6 +11,7 @@
 		105518671E2129C300079648 /* RepositoryTableViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518661E2129C300079648 /* RepositoryTableViewControllerBuilder.swift */; };
 		105518691E21F7E000079648 /* RepositoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518681E21F7E000079648 /* RepositoriesModel.swift */; };
 		1055186B1E21FA3100079648 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055186A1E21FA3100079648 /* RepositoryTableViewCell.swift */; };
+		1055186D1E2211CE00079648 /* RepositoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055186C1E2211CE00079648 /* RepositoryPresenter.swift */; };
 		1055186F1E2213DC00079648 /* RepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055186E1E2213DC00079648 /* RepositoryUseCase.swift */; };
 		105518711E22199000079648 /* RepositoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518701E22199000079648 /* RepositoryRepository.swift */; };
 		105518731E2219AE00079648 /* RepositoryDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518721E2219AE00079648 /* RepositoryDataStore.swift */; };
@@ -26,6 +27,7 @@
 		105518661E2129C300079648 /* RepositoryTableViewControllerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryTableViewControllerBuilder.swift; path = Application/Builder/RepositoryTableViewControllerBuilder.swift; sourceTree = "<group>"; };
 		105518681E21F7E000079648 /* RepositoriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoriesModel.swift; path = Domain/Model/RepositoriesModel.swift; sourceTree = "<group>"; };
 		1055186A1E21FA3100079648 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryTableViewCell.swift; path = Presentation/UI/Cell/RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		1055186C1E2211CE00079648 /* RepositoryPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryPresenter.swift; path = Presentation/Presenter/RepositoryPresenter.swift; sourceTree = "<group>"; };
 		1055186E1E2213DC00079648 /* RepositoryUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryUseCase.swift; path = Domain/UseCase/RepositoryUseCase.swift; sourceTree = "<group>"; };
 		105518701E22199000079648 /* RepositoryRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryRepository.swift; path = Domain/Repository/RepositoryRepository.swift; sourceTree = "<group>"; };
 		105518721E2219AE00079648 /* RepositoryDataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RepositoryDataStore.swift; path = Data/DataStore/RepositoryDataStore.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		1077778A1E1D39A0004E3115 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				1055186C1E2211CE00079648 /* RepositoryPresenter.swift */,
 			);
 			name = Presenter;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				105518771E222CD800079648 /* RepositoryTranslator.swift in Sources */,
 				105518651E21291300079648 /* RepositoryTableViewController.swift in Sources */,
 				105518671E2129C300079648 /* RepositoryTableViewControllerBuilder.swift in Sources */,
+				1055186D1E2211CE00079648 /* RepositoryPresenter.swift in Sources */,
 				107777711E1D3654004E3115 /* AppDelegate.swift in Sources */,
 				1055186F1E2213DC00079648 /* RepositoryUseCase.swift in Sources */,
 				105518711E22199000079648 /* RepositoryRepository.swift in Sources */,
