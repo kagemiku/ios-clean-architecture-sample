@@ -108,7 +108,7 @@ extension GitHubRepositoryTableViewController: UISearchResultsUpdating {
 
 // MARK: - GitHubRepositoryPresenterDelegate
 extension GitHubRepositoryTableViewController: GitHubRepositoryPresenterInput {
-    func setRepositoriesModel(_ repositoriesModel: RepositoriesModel) {
+    func setRepositoriesModel(_ repositoriesModel: GitHubRepositoriesModel) {
         self.repositories = repositoriesModel.repositories
         self.repositoryTableView.reloadData()
     }

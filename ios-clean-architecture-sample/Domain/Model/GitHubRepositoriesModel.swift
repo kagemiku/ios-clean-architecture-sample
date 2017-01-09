@@ -1,5 +1,5 @@
 //
-//  RepositoriesModel.swift
+//  GitHubRepositoriesModel.swift
 //  ios-clean-architecture-sample
 //
 //  Created by KAGE on 1/8/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct RepositoriesModel {
+struct GitHubRepositoriesModel {
     var repositories: [GitHubRepositoryModel] = []
 }
 

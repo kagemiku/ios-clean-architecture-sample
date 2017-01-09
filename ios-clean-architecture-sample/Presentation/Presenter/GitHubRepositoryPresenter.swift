@@ -13,7 +13,7 @@ protocol GitHubRepositoryPresenter: class {
 }
 
 protocol GitHubRepositoryPresenterInput: class {
-    func setRepositoriesModel(_ repositoriesModel: RepositoriesModel)
+    func setRepositoriesModel(_ repositoriesModel: GitHubRepositoriesModel)
     func showLoadingView()
     func hideLoadingView()
 }
@@ -37,7 +37,7 @@ class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
 }
 
 extension GitHubRepositoryPresenterImpl: GitHubRepositoryUseCasePresentationInput {
-    func useCase(_ useCase: GitHubRepositoryUseCase, didSearchRepositories repositories: RepositoriesModel) {
+    func useCase(_ useCase: GitHubRepositoryUseCase, didSearchRepositories repositories: GitHubRepositoriesModel) {
         self.viewController?.setRepositoriesModel(repositories)
         self.viewController?.hideLoadingView()
     }

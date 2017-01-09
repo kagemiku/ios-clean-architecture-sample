@@ -9,11 +9,11 @@
 import Foundation
 
 final class GitHubRepositoryTranslator {
-    static func translate(_ entity: [GitHubRepositoryEntity]) -> RepositoriesModel {
+    static func translate(_ entity: [GitHubRepositoryEntity]) -> GitHubRepositoriesModel {
         let repositories = entity.map {
             GitHubRepositoryModel(repositoryName: $0.full_name)
         }
 
-        return RepositoriesModel(repositories: repositories)
+        return GitHubRepositoriesModel(repositories: repositories)
     }
 }

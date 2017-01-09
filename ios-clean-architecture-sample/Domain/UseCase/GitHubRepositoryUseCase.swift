@@ -14,7 +14,7 @@ protocol GitHubRepositoryUseCase: class {
 }
 
 protocol GitHubRepositoryUseCasePresentationInput: class {
-    func useCase(_ useCase: GitHubRepositoryUseCase, didSearchRepositories repositories: RepositoriesModel)
+    func useCase(_ useCase: GitHubRepositoryUseCase, didSearchRepositories repositories: GitHubRepositoriesModel)
 }
 
 protocol GitHubRepositoryUseCaseDataInput: class {
@@ -37,7 +37,7 @@ class GitHubRepositoryUseCaseImpl: GitHubRepositoryUseCase {
         if let name = repositoryName, !name.isEmpty {
             self.repository.searchRepositories(repositoryName: name)
         } else {
-            self.presenter?.useCase(self, didSearchRepositories: RepositoriesModel())
+            self.presenter?.useCase(self, didSearchRepositories: GitHubRepositoriesModel())
         }
     }
 
