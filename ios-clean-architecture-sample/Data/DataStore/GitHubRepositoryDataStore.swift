@@ -27,17 +27,16 @@ extension GitHubRepositoryDataStoreImpl: GitHubRepositoryRepositoryInput {
             return
         }
 
-        Alamofire.request("https://api.github.com/search/repositories?q=" + name).responseData { [weak self] response in
-            switch response.result {
-            case .success(let value):
+        GitHubAPIClient<JSON>.searchRepositories(params: ["q": name]) { [weak self] response in
+            switch response {
+            case .Success(let value):
                 guard let `self` = self else {
                     return
                 }
 
-                let json = JSON(data: value)
-                let entities = self.parseAPIResponse(json)
+                let entities = self.parseAPIResponse(value)
                 self.repository?.dataStore(self, didSearchRepositories: entities)
-            case .failure(let error):
+            case .Error(let error):
                 print("error: \(error)")
             }
         }
