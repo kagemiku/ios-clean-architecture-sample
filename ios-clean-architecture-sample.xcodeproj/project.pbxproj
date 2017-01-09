@@ -17,6 +17,8 @@
 		1055189B1E227C3A00079648 /* GitHubRepositoryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055189A1E227C3A00079648 /* GitHubRepositoryEntity.swift */; };
 		1055189F1E227DC200079648 /* GitHubRepositoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055189E1E227DC200079648 /* GitHubRepositoryUseCase.swift */; };
 		105518A11E227E4A00079648 /* GitHubRepositoryTranslator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518A01E227E4A00079648 /* GitHubRepositoryTranslator.swift */; };
+		105518A71E23615000079648 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105518A31E235FFC00079648 /* Alamofire.framework */; };
+		105518A81E23615000079648 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105518A41E235FFC00079648 /* SwiftyJSON.framework */; };
 		107777711E1D3654004E3115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107777701E1D3654004E3115 /* AppDelegate.swift */; };
 		107777781E1D3654004E3115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107777771E1D3654004E3115 /* Assets.xcassets */; };
 		1077777B1E1D3654004E3115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107777791E1D3654004E3115 /* LaunchScreen.storyboard */; };
@@ -33,6 +35,8 @@
 		1055189A1E227C3A00079648 /* GitHubRepositoryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryEntity.swift; path = Domain/Entity/GitHubRepositoryEntity.swift; sourceTree = "<group>"; };
 		1055189E1E227DC200079648 /* GitHubRepositoryUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryUseCase.swift; path = Domain/UseCase/GitHubRepositoryUseCase.swift; sourceTree = "<group>"; };
 		105518A01E227E4A00079648 /* GitHubRepositoryTranslator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryTranslator.swift; path = Domain/Translator/GitHubRepositoryTranslator.swift; sourceTree = "<group>"; };
+		105518A31E235FFC00079648 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		105518A41E235FFC00079648 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		1077776D1E1D3654004E3115 /* ios-clean-architecture-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-clean-architecture-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		107777701E1D3654004E3115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		107777771E1D3654004E3115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,17 +49,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				105518A71E23615000079648 /* Alamofire.framework in Frameworks */,
+				105518A81E23615000079648 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		105518A21E235FFC00079648 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				105518A31E235FFC00079648 /* Alamofire.framework */,
+				105518A41E235FFC00079648 /* SwiftyJSON.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		107777641E1D3654004E3115 = {
 			isa = PBXGroup;
 			children = (
 				1077776F1E1D3654004E3115 /* ios-clean-architecture-sample */,
 				1077776E1E1D3654004E3115 /* Products */,
+				105518A21E235FFC00079648 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -250,6 +266,7 @@
 				107777691E1D3654004E3115 /* Sources */,
 				1077776A1E1D3654004E3115 /* Frameworks */,
 				1077776B1E1D3654004E3115 /* Resources */,
+				105518A91E23655400079648 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -305,6 +322,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		105518A91E23655400079648 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		107777691E1D3654004E3115 /* Sources */ = {
@@ -434,6 +469,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "ios-clean-architecture-sample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kagemiku.ios-clean-architecture-sample";
@@ -446,6 +485,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "ios-clean-architecture-sample/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kagemiku.ios-clean-architecture-sample";
