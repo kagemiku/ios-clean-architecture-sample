@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GitHubRepositoryPresenter: class {
-    func loadRepositories(repositoryName: String)
+    func didUpdateRepositorySearchBarText(_ text: String?)
 }
 
 protocol GitHubRepositoryPresenterInput: class {
@@ -28,13 +28,13 @@ class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
         self.viewController = viewController
     }
 
-    func loadRepositories(repositoryName: String) {
-        useCase.loadRepositories(repositoryName: repositoryName)
+    func didUpdateRepositorySearchBarText(_ text: String?) {
+        self.useCase.searchRepositories(repositoryName: text)
     }
 }
 
 extension GitHubRepositoryPresenterImpl: GitHubRepositoryUseCasePresentationInput {
-    func useCase(_ useCase: GitHubRepositoryUseCase, didLoadRepositories repositories: RepositoriesModel) {
+    func useCase(_ useCase: GitHubRepositoryUseCase, didSearchRepositories repositories: RepositoriesModel) {
         self.viewController?.setRepositoriesModel(repositories)
     }
 }

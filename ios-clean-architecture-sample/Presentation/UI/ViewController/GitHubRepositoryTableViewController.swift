@@ -18,14 +18,12 @@ class GitHubRepositoryTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setupRepositries()
         self.view.addSubview(repositoryTableView)
         self.repositoryTableView.tableHeaderView = self.repositorySearchController.searchBar
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Load", style: .plain, target: self, action: #selector(self.loadRepositories(sender:)))
 
         self.layoutGitHubRepositoryTableView()
     }
@@ -61,18 +59,6 @@ class GitHubRepositoryTableViewController: UIViewController {
         let frame = self.view.frame
         self.repositoryTableView.frame = frame
     }
-
-    // TODO: Test Code
-    private func setupRepositries() {
-        repositories.append(GitHubRepositoryModel(repositoryName: "Test1"))
-        repositories.append(GitHubRepositoryModel(repositoryName: "Test2"))
-        repositories.append(GitHubRepositoryModel(repositoryName: "Test3"))
-    }
-
-    // TODO: Test Code
-    func loadRepositories(sender: AnyObject) {
-        presenter?.loadRepositories(repositoryName: "")
-    }
 }
 
 // MARK: - UITableViewDataSource
@@ -97,7 +83,7 @@ extension GitHubRepositoryTableViewController: UITableViewDelegate { }
 // MARK: - UISearchResultsUpdating
 extension GitHubRepositoryTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        print(searchController.searchBar.text ?? "")
+        self.presenter?.didUpdateRepositorySearchBarText(searchController.searchBar.text)
     }
 }
 

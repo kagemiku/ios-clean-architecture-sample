@@ -9,11 +9,11 @@
 import Foundation
 
 protocol GitHubRepositoryRepository: class {
-    func dataStore(_ dataStore: GitHubRepositoryRepositoryInput, didLoadRepositories repositories: [GitHubRepositoryEntity])
+    func dataStore(_ dataStore: GitHubRepositoryRepositoryInput, didSearchRepositories repositories: [GitHubRepositoryEntity])
 }
 
 protocol GitHubRepositoryRepositoryInput: class {
-    func loadRepositories(repositoryName: String)
+    func searchRepositories(repositoryName: String)
 }
 
 class GitHubRepositoryRepositoryImpl: GitHubRepositoryRepository {
@@ -28,13 +28,13 @@ class GitHubRepositoryRepositoryImpl: GitHubRepositoryRepository {
         self.useCase = useCase
     }
 
-    func dataStore(_ dataStore: GitHubRepositoryRepositoryInput, didLoadRepositories repositories: [GitHubRepositoryEntity]) {
-        self.useCase?.repository(self, didLoadRepositories: repositories)
+    func dataStore(_ dataStore: GitHubRepositoryRepositoryInput, didSearchRepositories repositories: [GitHubRepositoryEntity]) {
+        self.useCase?.repository(self, didSearchRepositories: repositories)
     }
 }
 
 extension GitHubRepositoryRepositoryImpl: GitHubRepositoryUseCaseDataInput {
-    func loadRepositories(repositoryName: String) {
-        self.dataStore.loadRepositories(repositoryName: repositoryName)
+    func searchRepositories(repositoryName: String) {
+        self.dataStore.searchRepositories(repositoryName: repositoryName)
     }
 }

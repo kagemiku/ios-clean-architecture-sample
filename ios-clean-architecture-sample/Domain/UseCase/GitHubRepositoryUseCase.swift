@@ -9,16 +9,16 @@
 import Foundation
 
 protocol GitHubRepositoryUseCase: class {
-    func loadRepositories(repositoryName: String)
-    func repository(_ repository: GitHubRepositoryUseCaseDataInput, didLoadRepositories repositories: [GitHubRepositoryEntity])
+    func searchRepositories(repositoryName: String?)
+    func repository(_ repository: GitHubRepositoryUseCaseDataInput, didSearchRepositories repositories: [GitHubRepositoryEntity])
 }
 
 protocol GitHubRepositoryUseCasePresentationInput: class {
-    func useCase(_ useCase: GitHubRepositoryUseCase, didLoadRepositories repositories: RepositoriesModel)
+    func useCase(_ useCase: GitHubRepositoryUseCase, didSearchRepositories repositories: RepositoriesModel)
 }
 
 protocol GitHubRepositoryUseCaseDataInput: class {
-    func loadRepositories(repositoryName: String)
+    func searchRepositories(repositoryName: String)
 }
 
 class GitHubRepositoryUseCaseImpl: GitHubRepositoryUseCase {
@@ -33,12 +33,16 @@ class GitHubRepositoryUseCaseImpl: GitHubRepositoryUseCase {
         self.presenter = presenter
     }
 
-    func loadRepositories(repositoryName: String) {
-        self.repository.loadRepositories(repositoryName: repositoryName)
+    func searchRepositories(repositoryName: String?) {
+        if let name = repositoryName, !name.isEmpty {
+            self.repository.searchRepositories(repositoryName: name)
+        } else {
+            self.presenter?.useCase(self, didSearchRepositories: RepositoriesModel())
+        }
     }
 
-    func repository(_ repository: GitHubRepositoryUseCaseDataInput, didLoadRepositories repositories: [GitHubRepositoryEntity]) {
+    func repository(_ repository: GitHubRepositoryUseCaseDataInput, didSearchRepositories repositories: [GitHubRepositoryEntity]) {
         let repositoriesModel = GitHubRepositoryTranslator.translate(repositories)
-        self.presenter?.useCase(self, didLoadRepositories: repositoriesModel)
+        self.presenter?.useCase(self, didSearchRepositories: repositoriesModel)
     }
 }
