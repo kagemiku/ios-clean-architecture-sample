@@ -8,7 +8,26 @@
 
 import Foundation
 
-struct GitHubRepositoryEntity {
+import ObjectMapper
+
+struct GitHubRepositoryEntities: Mappable {
+    var items: [GitHubRepositoryEntity] = []
+
+    init?(map: Map) { }
+
+    mutating func mapping(map: Map) {
+        self.items <- map["items"]
+    }
+}
+
+struct GitHubRepositoryEntity: Mappable {
     var id = 0
     var full_name = ""
+
+    init?(map: Map) { }
+
+    mutating func mapping(map: Map) {
+        self.id        <- map["id"]
+        self.full_name <- map["full_name"]
+    }
 }

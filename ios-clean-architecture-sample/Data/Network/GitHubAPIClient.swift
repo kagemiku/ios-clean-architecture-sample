@@ -9,6 +9,7 @@
 import Foundation
 
 import Alamofire
+import ObjectMapper
 import SwiftyJSON
 
 enum Result<T> {
@@ -42,10 +43,12 @@ class GitHubAPIClient<T> {
     static func searchRepositories(params: Parameters, completionHandler: ((Result<T>) -> ())? = nil) {
         Alamofire.request(GitHubAPIRouter.SearchRepositories(params))
             .validate()
-            .responseData { response in
+            .responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    completionHandler?(Result<T>.Success(JSON(data: value) as! T))
+                    if let entities = Mapper<GitHubRepositoryEntities>().map(JSONObject: value) as? T {
+                        completionHandler?(Result<T>.Success(entities))
+                    }
                 case .failure(let error):
                     completionHandler?(Result<T>.Error(error))
                 }

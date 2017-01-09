@@ -27,39 +27,17 @@ extension GitHubRepositoryDataStoreImpl: GitHubRepositoryRepositoryInput {
             return
         }
 
-        GitHubAPIClient<JSON>.searchRepositories(params: ["q": name]) { [weak self] response in
+        GitHubAPIClient<GitHubRepositoryEntities>.searchRepositories(params: ["q": name]) { [weak self] response in
             switch response {
             case .Success(let value):
                 guard let `self` = self else {
                     return
                 }
 
-                let entities = self.parseAPIResponse(value)
-                self.repository?.dataStore(self, didSearchRepositories: entities)
+                self.repository?.dataStore(self, didSearchRepositories: value.items)
             case .Error(let error):
                 print("error: \(error)")
             }
         }
-    }
-
-    private func parseAPIResponse(_ response: JSON) -> [GitHubRepositoryEntity] {
-        guard let items = response["items"].array else {
-            return []
-        }
-
-        var entities: [GitHubRepositoryEntity] = []
-        for item in items {
-            guard
-                let id = item["id"].int,
-                let full_name = item["full_name"].string
-            else {
-                return []
-            }
-
-            let entity = GitHubRepositoryEntity(id: id, full_name: full_name)
-            entities.append(entity)
-        }
-
-        return entities
     }
 }
