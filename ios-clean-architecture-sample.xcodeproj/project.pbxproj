@@ -23,6 +23,7 @@
 		107777711E1D3654004E3115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107777701E1D3654004E3115 /* AppDelegate.swift */; };
 		107777781E1D3654004E3115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107777771E1D3654004E3115 /* Assets.xcassets */; };
 		1077777B1E1D3654004E3115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107777791E1D3654004E3115 /* LaunchScreen.storyboard */; };
+		10FF904E1E23BC9B0007F8D9 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		107777771E1D3654004E3115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1077777A1E1D3654004E3115 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1077777C1E1D3654004E3115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		10FF904D1E23BC9B0007F8D9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10FF904E1E23BC9B0007F8D9 /* ObjectMapper.framework in Frameworks */,
 				105518A71E23615000079648 /* Alamofire.framework in Frameworks */,
 				105518A81E23615000079648 /* SwiftyJSON.framework in Frameworks */,
 			);
@@ -62,6 +66,8 @@
 		105518A21E235FFC00079648 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */,
+				10FF904D1E23BC9B0007F8D9 /* Result.framework */,
 				105518A31E235FFC00079648 /* Alamofire.framework */,
 				105518A41E235FFC00079648 /* SwiftyJSON.framework */,
 			);
@@ -335,6 +341,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 			);
 			outputPaths = (
 			);
