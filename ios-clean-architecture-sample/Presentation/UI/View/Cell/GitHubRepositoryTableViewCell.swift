@@ -23,6 +23,6 @@ class GitHubRepositoryTableViewCell: UITableViewCell {
     }
 
     func configure(_ model: GitHubRepositoryModel) {
-        self.textLabel?.text = model.repositoryName
+        self.textLabel?.text = model.fullName
     }
 }

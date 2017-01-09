@@ -90,6 +90,7 @@ extension GitHubRepositoryTableViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: GitHubRepositoryTableViewCell.cellIdentifier, for: indexPath)
         if let c = cell as? GitHubRepositoryTableViewCell {
             c.configure(self.repositories[indexPath.row])
+            print(repositories[indexPath.row])
         }
 
         return cell

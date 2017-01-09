@@ -13,9 +13,15 @@ struct GitHubRepositoriesModel {
 }
 
 struct GitHubRepositoryModel {
-    let repositoryName: String
+    let name: String
+    let fullName: String
+    let owner: GitHubRepositoryOwnerModel
+    let isPrivate: Bool
+    let watchersCount: Int
+    let stargazersCount: Int
+    let forksCount: Int
+}
 
-    init(repositoryName: String) {
-        self.repositoryName = repositoryName
-    }
+struct GitHubRepositoryOwnerModel {
+    let name: String
 }
