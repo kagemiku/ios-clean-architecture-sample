@@ -8,6 +8,9 @@
 
 import Foundation
 
+import Alamofire
+import SwiftyJSON
+
 protocol GitHubRepositoryDataStore: class { }
 
 class GitHubRepositoryDataStoreImpl: GitHubRepositoryDataStore {
@@ -20,10 +23,44 @@ class GitHubRepositoryDataStoreImpl: GitHubRepositoryDataStore {
 
 extension GitHubRepositoryDataStoreImpl: GitHubRepositoryRepositoryInput {
     func searchRepositories(repositoryName: String) {
-        let repo1 = GitHubRepositoryEntity(id: 1, full_name: "repo1")
-        let repo2 = GitHubRepositoryEntity(id: 2, full_name: "repo2")
-        let repo3 = GitHubRepositoryEntity(id: 3, full_name: "repo3")
+        guard let name = repositoryName.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
+            return
+        }
 
-        self.repository?.dataStore(self, didSearchRepositories: [repo1, repo2, repo3])
+        Alamofire.request("https://api.github.com/search/repositories?q=" + name).responseData { [weak self] response in
+            switch response.result {
+            case .success(let value):
+                guard let `self` = self else {
+                    return
+                }
+
+                let json = JSON(data: value)
+                let entities = self.parseAPIResponse(json)
+                self.repository?.dataStore(self, didSearchRepositories: entities)
+            case .failure(let error):
+                print("error: \(error)")
+            }
+        }
+    }
+
+    private func parseAPIResponse(_ response: JSON) -> [GitHubRepositoryEntity] {
+        guard let items = response["items"].array else {
+            return []
+        }
+
+        var entities: [GitHubRepositoryEntity] = []
+        for item in items {
+            guard
+                let id = item["id"].int,
+                let full_name = item["full_name"].string
+            else {
+                return []
+            }
+
+            let entity = GitHubRepositoryEntity(id: id, full_name: full_name)
+            entities.append(entity)
+        }
+
+        return entities
     }
 }
