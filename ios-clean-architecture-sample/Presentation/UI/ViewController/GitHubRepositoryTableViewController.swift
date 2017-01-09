@@ -10,6 +10,7 @@ import UIKit
 
 class GitHubRepositoryTableViewController: UIViewController {
     fileprivate lazy var repositoryTableView: UITableView = self.createRepositoryTableView()
+    fileprivate lazy var repositorySearchController: UISearchController = self.createRepositorySearchController()
 
     fileprivate var presenter: GitHubRepositoryPresenter? = nil
     fileprivate var repositories: [GitHubRepositoryModel] = []
@@ -19,6 +20,7 @@ class GitHubRepositoryTableViewController: UIViewController {
 
         self.setupRepositries()
         self.view.addSubview(repositoryTableView)
+        self.repositoryTableView.tableHeaderView = self.repositorySearchController.searchBar
     }
 
     override func viewDidLayoutSubviews() {
@@ -42,7 +44,17 @@ class GitHubRepositoryTableViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate   = self
         tableView.register(GitHubRepositoryTableViewCell.self, forCellReuseIdentifier: GitHubRepositoryTableViewCell.cellIdentifier)
+
         return tableView
+    }
+
+    private func createRepositorySearchController() -> UISearchController {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation     = false
+        searchController.hidesNavigationBarDuringPresentation = false
+
+        return searchController
     }
 
     private func layoutGitHubRepositoryTableView() {
@@ -82,6 +94,12 @@ extension GitHubRepositoryTableViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension GitHubRepositoryTableViewController: UITableViewDelegate { }
 
+// MARK: - UISearchResultsUpdating
+extension GitHubRepositoryTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        print(searchController.searchBar.text ?? "")
+    }
+}
 
 // MARK: - GitHubRepositoryPresenterDelegate
 extension GitHubRepositoryTableViewController: GitHubRepositoryPresenterInput {
