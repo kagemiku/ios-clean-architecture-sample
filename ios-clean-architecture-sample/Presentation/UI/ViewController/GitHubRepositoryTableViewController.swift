@@ -11,6 +11,7 @@ import UIKit
 class GitHubRepositoryTableViewController: UIViewController {
     fileprivate lazy var repositoryTableView: UITableView = self.createRepositoryTableView()
     fileprivate lazy var repositorySearchController: UISearchController = self.createRepositorySearchController()
+    fileprivate lazy var loadingView: UIActivityIndicatorView = self.createLoadingView()
 
     fileprivate var presenter: GitHubRepositoryPresenter? = nil
     fileprivate var repositories: [GitHubRepositoryModel] = []
@@ -18,14 +19,17 @@ class GitHubRepositoryTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.addSubview(repositoryTableView)
+        self.navigationItem.title = "Repository Searcher"
+        self.view.addSubview(self.repositoryTableView)
         self.repositoryTableView.tableHeaderView = self.repositorySearchController.searchBar
+        self.view.addSubview(self.loadingView)
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         self.layoutGitHubRepositoryTableView()
+        self.layoutLoadingView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,9 +59,24 @@ class GitHubRepositoryTableViewController: UIViewController {
         return searchController
     }
 
+    private func createLoadingView() -> UIActivityIndicatorView {
+        let activityIndicatorView = UIActivityIndicatorView(frame: CGRect.zero)
+        activityIndicatorView.activityIndicatorViewStyle = .gray
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.isHidden = true
+
+        return activityIndicatorView
+    }
+
     private func layoutGitHubRepositoryTableView() {
         let frame = self.view.frame
         self.repositoryTableView.frame = frame
+    }
+
+    private func layoutLoadingView() {
+        let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        self.loadingView.frame = frame
+        self.loadingView.center = self.view.center
     }
 }
 
@@ -92,5 +111,13 @@ extension GitHubRepositoryTableViewController: GitHubRepositoryPresenterInput {
     func setRepositoriesModel(_ repositoriesModel: RepositoriesModel) {
         self.repositories = repositoriesModel.repositories
         self.repositoryTableView.reloadData()
+    }
+
+    func showLoadingView() {
+        self.loadingView.startAnimating()
+    }
+
+    func hideLoadingView() {
+        self.loadingView.stopAnimating()
     }
 }

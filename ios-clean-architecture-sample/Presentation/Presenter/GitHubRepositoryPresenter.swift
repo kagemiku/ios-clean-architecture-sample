@@ -14,6 +14,8 @@ protocol GitHubRepositoryPresenter: class {
 
 protocol GitHubRepositoryPresenterInput: class {
     func setRepositoriesModel(_ repositoriesModel: RepositoriesModel)
+    func showLoadingView()
+    func hideLoadingView()
 }
 
 class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
@@ -29,6 +31,7 @@ class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
     }
 
     func didUpdateRepositorySearchBarText(_ text: String?) {
+        self.viewController?.showLoadingView()
         self.useCase.searchRepositories(repositoryName: text)
     }
 }
@@ -36,5 +39,6 @@ class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
 extension GitHubRepositoryPresenterImpl: GitHubRepositoryUseCasePresentationInput {
     func useCase(_ useCase: GitHubRepositoryUseCase, didSearchRepositories repositories: RepositoriesModel) {
         self.viewController?.setRepositoriesModel(repositories)
+        self.viewController?.hideLoadingView()
     }
 }
