@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101ED38D1E24BC1D00413B9E /* GitHubRepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101ED38C1E24BC1D00413B9E /* GitHubRepositoryDetailViewController.swift */; };
+		101ED3911E24BDD200413B9E /* GitHubRepositoryDetailViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101ED3901E24BDD200413B9E /* GitHubRepositoryDetailViewControllerBuilder.swift */; };
+		101ED3931E24BE3D00413B9E /* GitHubRepositoryDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101ED3921E24BE3D00413B9E /* GitHubRepositoryDetailHeaderView.swift */; };
+		101ED3951E24BF6500413B9E /* GitHubRepositoryDetailHeaderLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101ED3941E24BF6500413B9E /* GitHubRepositoryDetailHeaderLabelView.swift */; };
 		105518651E21291300079648 /* GitHubRepositoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518641E21291300079648 /* GitHubRepositoryTableViewController.swift */; };
 		105518671E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518661E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift */; };
 		105518691E21F7E000079648 /* GitHubRepositoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518681E21F7E000079648 /* GitHubRepositoriesModel.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		101ED38C1E24BC1D00413B9E /* GitHubRepositoryDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryDetailViewController.swift; path = Presentation/UI/ViewController/GitHubRepositoryDetailViewController.swift; sourceTree = "<group>"; };
+		101ED3901E24BDD200413B9E /* GitHubRepositoryDetailViewControllerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryDetailViewControllerBuilder.swift; path = Application/Builder/GitHubRepositoryDetailViewControllerBuilder.swift; sourceTree = "<group>"; };
+		101ED3921E24BE3D00413B9E /* GitHubRepositoryDetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryDetailHeaderView.swift; path = Presentation/UI/View/GitHubRepositoryDetailHeaderView.swift; sourceTree = "<group>"; };
+		101ED3941E24BF6500413B9E /* GitHubRepositoryDetailHeaderLabelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryDetailHeaderLabelView.swift; path = Presentation/UI/View/GitHubRepositoryDetailHeaderLabelView.swift; sourceTree = "<group>"; };
 		105518641E21291300079648 /* GitHubRepositoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryTableViewController.swift; path = Presentation/UI/ViewController/GitHubRepositoryTableViewController.swift; sourceTree = "<group>"; };
 		105518661E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryTableViewControllerBuilder.swift; path = Application/Builder/GitHubRepositoryTableViewControllerBuilder.swift; sourceTree = "<group>"; };
 		105518681E21F7E000079648 /* GitHubRepositoriesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = GitHubRepositoriesModel.swift; path = Domain/Model/GitHubRepositoriesModel.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -164,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				105518661E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift */,
+				101ED3901E24BDD200413B9E /* GitHubRepositoryDetailViewControllerBuilder.swift */,
 			);
 			name = Builder;
 			sourceTree = "<group>";
@@ -189,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				105518641E21291300079648 /* GitHubRepositoryTableViewController.swift */,
+				101ED38C1E24BC1D00413B9E /* GitHubRepositoryDetailViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -205,6 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				1077778C1E1D39BE004E3115 /* Cell */,
+				101ED3921E24BE3D00413B9E /* GitHubRepositoryDetailHeaderView.swift */,
+				101ED3941E24BF6500413B9E /* GitHubRepositoryDetailHeaderLabelView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -356,6 +368,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101ED3951E24BF6500413B9E /* GitHubRepositoryDetailHeaderLabelView.swift in Sources */,
+				101ED3911E24BDD200413B9E /* GitHubRepositoryDetailViewControllerBuilder.swift in Sources */,
 				105518A11E227E4A00079648 /* GitHubRepositoryTranslator.swift in Sources */,
 				105518651E21291300079648 /* GitHubRepositoryTableViewController.swift in Sources */,
 				105518671E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift in Sources */,
@@ -364,7 +378,9 @@
 				107777711E1D3654004E3115 /* AppDelegate.swift in Sources */,
 				105518991E227C1F00079648 /* GitHubRepositoryRepository.swift in Sources */,
 				1055189B1E227C3A00079648 /* GitHubRepositoryEntity.swift in Sources */,
+				101ED38D1E24BC1D00413B9E /* GitHubRepositoryDetailViewController.swift in Sources */,
 				105518AB1E2388E600079648 /* GitHubAPIClient.swift in Sources */,
+				101ED3931E24BE3D00413B9E /* GitHubRepositoryDetailHeaderView.swift in Sources */,
 				105518971E227C0100079648 /* GitHubRepositoryTableViewCell.swift in Sources */,
 				105518731E2219AE00079648 /* GitHubRepositoryDataStore.swift in Sources */,
 				105518691E21F7E000079648 /* GitHubRepositoriesModel.swift in Sources */,
