@@ -97,7 +97,12 @@ extension GitHubRepositoryTableViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension GitHubRepositoryTableViewController: UITableViewDelegate { }
+extension GitHubRepositoryTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repository = self.repositories[indexPath.row]
+        self.presenter?.didSelectRepository(repositoryModel: repository)
+    }
+}
 
 // MARK: - UISearchResultsUpdating
 extension GitHubRepositoryTableViewController: UISearchResultsUpdating {
@@ -111,6 +116,10 @@ extension GitHubRepositoryTableViewController: GitHubRepositoryPresenterInput {
     func setRepositoriesModel(_ repositoriesModel: GitHubRepositoriesModel) {
         self.repositories = repositoriesModel.repositories
         self.repositoryTableView.reloadData()
+    }
+
+    func endSearching() {
+        self.repositorySearchController.isActive = false
     }
 
     func showLoadingView() {

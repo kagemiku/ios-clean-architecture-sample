@@ -10,20 +10,24 @@ import Foundation
 
 protocol GitHubRepositoryPresenter: class {
     func didUpdateRepositorySearchBarText(_ text: String?)
+    func didSelectRepository(repositoryModel: GitHubRepositoryModel)
 }
 
 protocol GitHubRepositoryPresenterInput: class {
     func setRepositoriesModel(_ repositoriesModel: GitHubRepositoriesModel)
+    func endSearching()
     func showLoadingView()
     func hideLoadingView()
 }
 
 class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
     fileprivate let useCase: GitHubRepositoryUseCase
+    fileprivate let wireframe: GitHubRepositoryWireframe
     fileprivate weak var viewController: GitHubRepositoryPresenterInput?
 
-    init(useCase: GitHubRepositoryUseCase) {
-        self.useCase = useCase
+    init(useCase: GitHubRepositoryUseCase, wireframe: GitHubRepositoryWireframe) {
+        self.useCase   = useCase
+        self.wireframe = wireframe
     }
 
     func inject(viewController: GitHubRepositoryPresenterInput) {
@@ -33,6 +37,11 @@ class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
     func didUpdateRepositorySearchBarText(_ text: String?) {
         self.viewController?.showLoadingView()
         self.useCase.searchRepositories(repositoryName: text)
+    }
+
+    func didSelectRepository(repositoryModel: GitHubRepositoryModel) {
+        self.viewController?.endSearching()
+        self.wireframe.showDetail(repositoryModel: repositoryModel)
     }
 }
 

@@ -27,6 +27,7 @@
 		107777711E1D3654004E3115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107777701E1D3654004E3115 /* AppDelegate.swift */; };
 		107777781E1D3654004E3115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107777771E1D3654004E3115 /* Assets.xcassets */; };
 		1077777B1E1D3654004E3115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107777791E1D3654004E3115 /* LaunchScreen.storyboard */; };
+		10B580EF1E27479100C328E9 /* GitHubRepositoryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B580EE1E27479100C328E9 /* GitHubRepositoryWireframe.swift */; };
 		10FF904E1E23BC9B0007F8D9 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */; };
 		10FF90521E2672A00007F8D9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FF90511E2672A00007F8D9 /* UIColorExtension.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		107777771E1D3654004E3115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1077777A1E1D3654004E3115 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1077777C1E1D3654004E3115 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10B580EE1E27479100C328E9 /* GitHubRepositoryWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryWireframe.swift; path = Application/Wireframe/GitHubRepositoryWireframe.swift; sourceTree = "<group>"; };
 		10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		10FF904D1E23BC9B0007F8D9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		10FF90511E2672A00007F8D9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Application/Extension/UIColorExtension.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		107777871E1D398E004E3115 /* Wireframe */ = {
 			isa = PBXGroup;
 			children = (
+				10B580EE1E27479100C328E9 /* GitHubRepositoryWireframe.swift */,
 			);
 			name = Wireframe;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				10FF90521E2672A00007F8D9 /* UIColorExtension.swift in Sources */,
 				101ED3951E24BF6500413B9E /* GitHubRepositoryDetailHeaderLabelView.swift in Sources */,
 				101ED3911E24BDD200413B9E /* GitHubRepositoryDetailViewControllerBuilder.swift in Sources */,
+				10B580EF1E27479100C328E9 /* GitHubRepositoryWireframe.swift in Sources */,
 				105518A11E227E4A00079648 /* GitHubRepositoryTranslator.swift in Sources */,
 				105518651E21291300079648 /* GitHubRepositoryTableViewController.swift in Sources */,
 				105518671E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift in Sources */,
