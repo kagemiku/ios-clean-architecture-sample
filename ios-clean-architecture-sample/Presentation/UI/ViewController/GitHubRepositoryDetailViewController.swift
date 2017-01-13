@@ -11,6 +11,18 @@ import UIKit
 class GitHubRepositoryDetailViewController: UIViewController {
     fileprivate lazy var detailTableView: UITableView = self.createDetailTableView()
     fileprivate lazy var headerView: GitHubRepositoryDetailHeaderView = self.createHeaderView()
+    fileprivate var repository: GitHubRepositoryModel? {
+        didSet {
+            guard let repo = self.repository else {
+                return
+            }
+
+            self.headerView.update(repositoryName: repo.name,
+                                   watchersNumber: repo.watchersCount,
+                                   starsNumber: repo.stargazersCount,
+                                   forksNumber: repo.forksCount)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,5 +70,9 @@ class GitHubRepositoryDetailViewController: UIViewController {
     private func layoutHeaderView() {
         let frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 100.0)
         self.headerView.frame = frame
+    }
+
+    func setRepositoryModel(_ repositoryModel: GitHubRepositoryModel) {
+        self.repository = repositoryModel
     }
 }
