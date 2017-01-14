@@ -31,6 +31,7 @@
 		10FF904E1E23BC9B0007F8D9 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */; };
 		10FF90521E2672A00007F8D9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FF90511E2672A00007F8D9 /* UIColorExtension.swift */; };
 		10FF90541E29D3330007F8D9 /* ViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FF90531E29D3330007F8D9 /* ViewControllerBuilder.swift */; };
+		10FF90561E29D5010007F8D9 /* Wireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FF90551E29D5010007F8D9 /* Wireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		10FF904D1E23BC9B0007F8D9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		10FF90511E2672A00007F8D9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Application/Extension/UIColorExtension.swift; sourceTree = "<group>"; };
 		10FF90531E29D3330007F8D9 /* ViewControllerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerBuilder.swift; path = Application/Builder/ViewControllerBuilder.swift; sourceTree = "<group>"; };
+		10FF90551E29D5010007F8D9 /* Wireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wireframe.swift; path = Application/Wireframe/Wireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 		107777871E1D398E004E3115 /* Wireframe */ = {
 			isa = PBXGroup;
 			children = (
+				10FF90551E29D5010007F8D9 /* Wireframe.swift */,
 				10B580EE1E27479100C328E9 /* GitHubRepositoryWireframe.swift */,
 			);
 			name = Wireframe;
@@ -385,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10FF90561E29D5010007F8D9 /* Wireframe.swift in Sources */,
 				10FF90541E29D3330007F8D9 /* ViewControllerBuilder.swift in Sources */,
 				10FF90521E2672A00007F8D9 /* UIColorExtension.swift in Sources */,
 				101ED3951E24BF6500413B9E /* GitHubRepositoryDetailHeaderLabelView.swift in Sources */,

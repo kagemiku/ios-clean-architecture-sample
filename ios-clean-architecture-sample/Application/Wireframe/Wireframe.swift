@@ -1,5 +1,5 @@
 //
-//  ViewControllerBuilder.swift
+//  Wireframe.swift
 //  ios-clean-architecture-sample
 //
 //  Created by KAGE on 1/14/17.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol ViewControllerBuilder: class {
+protocol WireFrame: class {
     associatedtype ViewController: UIViewController
 
-    static func build() -> ViewController
+    init(viewController: ViewController)
 }

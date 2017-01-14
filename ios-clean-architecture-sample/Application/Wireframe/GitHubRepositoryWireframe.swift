@@ -8,10 +8,12 @@
 
 import UIKit
 
-final class GitHubRepositoryWireframe {
+final class GitHubRepositoryWireframe: WireFrame {
+    typealias ViewController = GitHubRepositoryTableViewController
+
     fileprivate weak var viewController: GitHubRepositoryTableViewController?
 
-    init(viewController: GitHubRepositoryTableViewController) {
+    init(viewController: ViewController) {
         self.viewController = viewController
     }
 
