@@ -16,9 +16,8 @@ final class GitHubRepositoryWireframe {
     }
 
     func showDetail(repositoryModel: GitHubRepositoryModel) {
-        if let nextViewController = GitHubRepositoryDetailViewControllerBuilder.build() as? GitHubRepositoryDetailViewController {
-            nextViewController.setRepositoryModel(repositoryModel)
-            self.viewController?.navigationController?.pushViewController(nextViewController, animated: true)
-        }
+        let nextViewController = GitHubRepositoryDetailViewControllerBuilder.build()
+        nextViewController.setRepositoryModel(repositoryModel)
+        self.viewController?.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

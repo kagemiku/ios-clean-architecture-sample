@@ -30,6 +30,7 @@
 		10B580EF1E27479100C328E9 /* GitHubRepositoryWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B580EE1E27479100C328E9 /* GitHubRepositoryWireframe.swift */; };
 		10FF904E1E23BC9B0007F8D9 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */; };
 		10FF90521E2672A00007F8D9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FF90511E2672A00007F8D9 /* UIColorExtension.swift */; };
+		10FF90541E29D3330007F8D9 /* ViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FF90531E29D3330007F8D9 /* ViewControllerBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		10FF904D1E23BC9B0007F8D9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		10FF90511E2672A00007F8D9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Application/Extension/UIColorExtension.swift; sourceTree = "<group>"; };
+		10FF90531E29D3330007F8D9 /* ViewControllerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewControllerBuilder.swift; path = Application/Builder/ViewControllerBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 		107777881E1D3993004E3115 /* Builder */ = {
 			isa = PBXGroup;
 			children = (
+				10FF90531E29D3330007F8D9 /* ViewControllerBuilder.swift */,
 				105518661E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift */,
 				101ED3901E24BDD200413B9E /* GitHubRepositoryDetailViewControllerBuilder.swift */,
 			);
@@ -382,6 +385,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10FF90541E29D3330007F8D9 /* ViewControllerBuilder.swift in Sources */,
 				10FF90521E2672A00007F8D9 /* UIColorExtension.swift in Sources */,
 				101ED3951E24BF6500413B9E /* GitHubRepositoryDetailHeaderLabelView.swift in Sources */,
 				101ED3911E24BDD200413B9E /* GitHubRepositoryDetailViewControllerBuilder.swift in Sources */,
