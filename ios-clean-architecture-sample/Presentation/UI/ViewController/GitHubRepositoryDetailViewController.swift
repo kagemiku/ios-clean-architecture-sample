@@ -24,6 +24,8 @@ class GitHubRepositoryDetailViewController: UIViewController {
         }
     }
 
+    fileprivate var presenter: GitHubRepositoryDetailPresenter? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -47,6 +49,10 @@ class GitHubRepositoryDetailViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func inject(presenter: GitHubRepositoryDetailPresenter) {
+        self.presenter = presenter
     }
 
     private func createDetailTableView() -> UITableView {

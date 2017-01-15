@@ -13,6 +13,16 @@ final class GitHubRepositoryDetailViewControllerBuilder: ViewControllerBuilder {
 
     static func build() -> ViewController {
         let viewController = GitHubRepositoryDetailViewController()
+        let dataStore      = GitHubRepositoryDetailDataStoreImpl()
+        let repository     = GitHubRepositoryDetailRepositoryImpl(dataStore: dataStore)
+        let useCase        = GitHubRepositoryDetailUseCaseImpl(repository: repository)
+        let presenter      = GitHubRepositoryDetailPresenterImpl(useCase: useCase)
+
+        dataStore.inject(repository: repository)
+        repository.inject(useCase: useCase)
+        useCase.inject(presenter: presenter)
+        presenter.inject(viewController: viewController)
+        viewController.inject(presenter: presenter)
 
         return viewController
     }
