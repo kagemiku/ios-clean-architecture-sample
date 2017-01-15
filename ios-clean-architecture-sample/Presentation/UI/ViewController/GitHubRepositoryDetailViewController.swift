@@ -25,6 +25,7 @@ class GitHubRepositoryDetailViewController: UIViewController {
     }
 
     fileprivate var presenter: GitHubRepositoryDetailPresenter? = nil
+    fileprivate var dataSource: [GitHubRepositoryDetailModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,13 +91,20 @@ class GitHubRepositoryDetailViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension GitHubRepositoryDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return self.dataSource.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GitHubRepositoryDetailViewCell.cellIdentifier, for: indexPath)
-        if let c = cell as? GitHubRepositoryDetailViewCell {
-            c.configure("test", icon: nil)
+        if let c = cell as? GitHubRepositoryDetailViewCell,
+            let data = dataSource[safe: indexPath.row] {
+            switch data {
+            case .Description(let text):
+                c.configure(text: text, icon: nil)
+            case .Owner(let model):
+                c.configure(text: model.name, icon: nil)
+                break
+            }
         }
 
         return cell

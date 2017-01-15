@@ -22,7 +22,7 @@ class GitHubRepositoryDetailViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(_ text: String?, icon: UIImage?) {
+    func configure(text: String?, icon: UIImage?) {
         self.textLabel?.text = text
         self.imageView?.image = icon
     }
