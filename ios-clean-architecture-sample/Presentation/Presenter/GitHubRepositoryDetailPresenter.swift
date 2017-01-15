@@ -8,9 +8,13 @@
 
 import Foundation
 
-protocol GitHubRepositoryDetailPresenter: class { }
+protocol GitHubRepositoryDetailPresenter: class {
+    func setupDataSource(model: GitHubRepositoryModel)
+}
 
-protocol GitHubRepositoryDetailPresenterInput: class { }
+protocol GitHubRepositoryDetailPresenterInput: class {
+    func setDataSource(_ dataSource: [GitHubRepositoryDetailModel])
+}
 
 class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter {
     fileprivate let useCase: GitHubRepositoryDetailUseCase
@@ -22,6 +26,14 @@ class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter {
 
     func inject(viewController: GitHubRepositoryDetailPresenterInput) {
         self.viewController = viewController
+    }
+
+    func setupDataSource(model: GitHubRepositoryModel) {
+        var dataSource: [GitHubRepositoryDetailModel] = []
+        dataSource.append(GitHubRepositoryDetailModel.Description(text: model.description))
+        dataSource.append(GitHubRepositoryDetailModel.Owner(model: model.owner))
+
+        self.viewController?.setDataSource(dataSource)
     }
 }
 

@@ -21,6 +21,8 @@ class GitHubRepositoryDetailViewController: UIViewController {
                                    watchersNumber: repo.watchersCount,
                                    starsNumber: repo.stargazersCount,
                                    forksNumber: repo.forksCount)
+
+            self.presenter?.setupDataSource(model: repo)
         }
     }
 
@@ -113,3 +115,11 @@ extension GitHubRepositoryDetailViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension GitHubRepositoryDetailViewController: UITableViewDelegate { }
+
+// MARK: -
+extension GitHubRepositoryDetailViewController: GitHubRepositoryDetailPresenterInput {
+    func setDataSource(_ dataSource: [GitHubRepositoryDetailModel]) {
+        self.dataSource = dataSource
+        self.detailTableView.reloadData()
+    }
+}
