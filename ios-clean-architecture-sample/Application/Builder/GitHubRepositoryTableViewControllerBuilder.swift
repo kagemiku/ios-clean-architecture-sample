@@ -8,13 +8,16 @@
 
 import UIKit
 
-final class GitHubRepositoryTableViewControllerBuilder {
-    static func build() -> UIViewController {
+final class GitHubRepositoryTableViewControllerBuilder: ViewControllerBuilder {
+    typealias ViewController = GitHubRepositoryTableViewController
+
+    static func build() -> ViewController {
+        let viewController = GitHubRepositoryTableViewController()
+        let wireframe      = GitHubRepositoryWireframe(viewController: viewController)
         let dataStore      = GitHubRepositoryDataStoreImpl()
         let repository     = GitHubRepositoryRepositoryImpl(dataStore: dataStore)
         let useCase        = GitHubRepositoryUseCaseImpl(repository: repository)
-        let presenter      = GitHubRepositoryPresenterImpl(useCase: useCase)
-        let viewController = GitHubRepositoryTableViewController()
+        let presenter      = GitHubRepositoryPresenterImpl(useCase: useCase, wireframe: wireframe)
 
         dataStore.inject(repository: repository)
         repository.inject(useCase: useCase)

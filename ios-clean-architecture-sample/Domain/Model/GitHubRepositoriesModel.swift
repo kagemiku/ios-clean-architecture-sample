@@ -1,5 +1,5 @@
 //
-//  RepositoriesModel.swift
+//  GitHubRepositoriesModel.swift
 //  ios-clean-architecture-sample
 //
 //  Created by KAGE on 1/8/17.
@@ -8,14 +8,21 @@
 
 import Foundation
 
-struct RepositoriesModel {
+struct GitHubRepositoriesModel {
     var repositories: [GitHubRepositoryModel] = []
 }
 
 struct GitHubRepositoryModel {
-    let repositoryName: String
+    let name: String
+    let fullName: String
+    let owner: GitHubRepositoryOwnerModel
+    let isPrivate: Bool
+    let description: String
+    let watchersCount: Int
+    let stargazersCount: Int
+    let forksCount: Int
+}
 
-    init(repositoryName: String) {
-        self.repositoryName = repositoryName
-    }
+struct GitHubRepositoryOwnerModel {
+    let name: String
 }

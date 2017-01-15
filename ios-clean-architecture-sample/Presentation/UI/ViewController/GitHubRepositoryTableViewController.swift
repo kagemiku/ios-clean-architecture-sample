@@ -83,13 +83,13 @@ class GitHubRepositoryTableViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension GitHubRepositoryTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repositories.count
+        return self.repositories.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GitHubRepositoryTableViewCell.cellIdentifier, for: indexPath)
         if let c = cell as? GitHubRepositoryTableViewCell {
-            c.configure(repositories[indexPath.row])
+            c.configure(self.repositories[indexPath.row])
         }
 
         return cell
@@ -97,7 +97,12 @@ extension GitHubRepositoryTableViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension GitHubRepositoryTableViewController: UITableViewDelegate { }
+extension GitHubRepositoryTableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repository = self.repositories[indexPath.row]
+        self.presenter?.didSelectRepository(repositoryModel: repository)
+    }
+}
 
 // MARK: - UISearchResultsUpdating
 extension GitHubRepositoryTableViewController: UISearchResultsUpdating {
@@ -108,9 +113,13 @@ extension GitHubRepositoryTableViewController: UISearchResultsUpdating {
 
 // MARK: - GitHubRepositoryPresenterDelegate
 extension GitHubRepositoryTableViewController: GitHubRepositoryPresenterInput {
-    func setRepositoriesModel(_ repositoriesModel: RepositoriesModel) {
+    func setRepositoriesModel(_ repositoriesModel: GitHubRepositoriesModel) {
         self.repositories = repositoriesModel.repositories
         self.repositoryTableView.reloadData()
+    }
+
+    func endSearching() {
+        self.repositorySearchController.isActive = false
     }
 
     func showLoadingView() {

@@ -1,15 +1,15 @@
 //
-//  GitHubRepositoryTableViewCell.swift
+//  GitHubRepositoryDetailViewCell.swift
 //  ios-clean-architecture-sample
 //
-//  Created by KAGE on 1/8/17.
+//  Created by KAGE on 1/15/17.
 //  Copyright © 2017 KAGE. All rights reserved.
 //
 
 import UIKit
 
-class GitHubRepositoryTableViewCell: UITableViewCell {
-    static let cellIdentifier = String(describing: GitHubRepositoryTableViewCell.self)
+class GitHubRepositoryDetailViewCell: UITableViewCell {
+    static let cellIdentifier = String(describing: GitHubRepositoryDetailViewCell.self)
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +22,8 @@ class GitHubRepositoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configure(_ model: GitHubRepositoryModel) {
-        self.textLabel?.text = model.fullName
+    func configure(text: String?, icon: UIImage?) {
+        self.textLabel?.text = text
+        self.imageView?.image = icon
     }
 }

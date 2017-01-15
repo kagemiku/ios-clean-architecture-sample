@@ -9,11 +9,27 @@
 import Foundation
 
 final class GitHubRepositoryTranslator {
-    static func translate(_ entity: [GitHubRepositoryEntity]) -> RepositoriesModel {
-        let repositories = entity.map {
-            GitHubRepositoryModel(repositoryName: $0.full_name)
+    static func translate(_ entity: [GitHubRepositoryEntity]) -> GitHubRepositoriesModel {
+        let repositories: [GitHubRepositoryModel] = entity.map {
+            let name = $0.name
+            let fullName = $0.full_name
+            let owner = GitHubRepositoryOwnerModel(name: $0.owner.login)
+            let isPrivate = $0.private
+            let description = $0.description
+            let watchersCount = $0.watchers_count
+            let stargazersCount = $0.stargazers_count
+            let forksCount = $0.forks_count
+
+            return GitHubRepositoryModel(name: name,
+                                         fullName: fullName,
+                                         owner: owner,
+                                         isPrivate: isPrivate,
+                                         description: description,
+                                         watchersCount: watchersCount,
+                                         stargazersCount: stargazersCount,
+                                         forksCount: forksCount)
         }
 
-        return RepositoriesModel(repositories: repositories)
+        return GitHubRepositoriesModel(repositories: repositories)
     }
 }
