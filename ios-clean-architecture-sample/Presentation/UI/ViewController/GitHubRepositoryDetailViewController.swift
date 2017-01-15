@@ -51,6 +51,9 @@ class GitHubRepositoryDetailViewController: UIViewController {
 
     private func createDetailTableView() -> UITableView {
         let tableView = UITableView(frame: CGRect.zero, style: .grouped)
+        tableView.dataSource = self
+        tableView.delegate   = self
+        tableView.register(GitHubRepositoryDetailViewCell.self, forCellReuseIdentifier: GitHubRepositoryDetailViewCell.cellIdentifier)
 
         return tableView
     }
@@ -77,3 +80,22 @@ class GitHubRepositoryDetailViewController: UIViewController {
         self.repository = repositoryModel
     }
 }
+
+// MARK: - UITableViewDataSource
+extension GitHubRepositoryDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: GitHubRepositoryDetailViewCell.cellIdentifier, for: indexPath)
+        if let c = cell as? GitHubRepositoryDetailViewCell {
+            c.configure("test", icon: nil)
+        }
+
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension GitHubRepositoryDetailViewController: UITableViewDelegate { }
