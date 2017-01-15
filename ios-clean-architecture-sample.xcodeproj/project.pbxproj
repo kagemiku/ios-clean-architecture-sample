@@ -35,6 +35,7 @@
 		10CF39191E2BACBA00B6E869 /* GitHubRepositoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF39181E2BACBA00B6E869 /* GitHubRepositoryDetailPresenter.swift */; };
 		10CF391B1E2BAF3200B6E869 /* GitHubRepositoryDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF391A1E2BAF3200B6E869 /* GitHubRepositoryDetailModel.swift */; };
 		10CF391D1E2BB1A200B6E869 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF391C1E2BB1A200B6E869 /* CollectionExtension.swift */; };
+		10CF391F1E2BCB4C00B6E869 /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CF391E1E2BCB4C00B6E869 /* Translator.swift */; };
 		10FF904E1E23BC9B0007F8D9 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */; };
 		10FF90521E2672A00007F8D9 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FF90511E2672A00007F8D9 /* UIColorExtension.swift */; };
 		10FF90541E29D3330007F8D9 /* ViewControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10FF90531E29D3330007F8D9 /* ViewControllerBuilder.swift */; };
@@ -72,6 +73,7 @@
 		10CF39181E2BACBA00B6E869 /* GitHubRepositoryDetailPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryDetailPresenter.swift; path = Presentation/Presenter/GitHubRepositoryDetailPresenter.swift; sourceTree = "<group>"; };
 		10CF391A1E2BAF3200B6E869 /* GitHubRepositoryDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubRepositoryDetailModel.swift; path = Domain/Model/GitHubRepositoryDetailModel.swift; sourceTree = "<group>"; };
 		10CF391C1E2BB1A200B6E869 /* CollectionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionExtension.swift; path = Application/Extension/CollectionExtension.swift; sourceTree = "<group>"; };
+		10CF391E1E2BCB4C00B6E869 /* Translator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Translator.swift; path = Domain/Translator/Translator.swift; sourceTree = "<group>"; };
 		10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
 		10FF904D1E23BC9B0007F8D9 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		10FF90511E2672A00007F8D9 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = Application/Extension/UIColorExtension.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				105518A01E227E4A00079648 /* GitHubRepositoryTranslator.swift */,
+				10CF391E1E2BCB4C00B6E869 /* Translator.swift */,
 			);
 			name = Translator;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				105518671E2129C300079648 /* GitHubRepositoryTableViewControllerBuilder.swift in Sources */,
 				1055189F1E227DC200079648 /* GitHubRepositoryUseCase.swift in Sources */,
 				1055186D1E2211CE00079648 /* GitHubRepositoryPresenter.swift in Sources */,
+				10CF391F1E2BCB4C00B6E869 /* Translator.swift in Sources */,
 				107777711E1D3654004E3115 /* AppDelegate.swift in Sources */,
 				10CF391D1E2BB1A200B6E869 /* CollectionExtension.swift in Sources */,
 				105518991E227C1F00079648 /* GitHubRepositoryRepository.swift in Sources */,

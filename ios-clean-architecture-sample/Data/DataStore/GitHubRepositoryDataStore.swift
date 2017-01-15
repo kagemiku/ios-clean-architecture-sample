@@ -27,14 +27,14 @@ extension GitHubRepositoryDataStoreImpl: GitHubRepositoryRepositoryInput {
             return
         }
 
-        GitHubAPIClient<GitHubRepositoryEntities>.searchRepositories(params: ["q": name]) { [weak self] response in
+        GitHubAPIClient<GitHubRepositoriesEntity>.searchRepositories(params: ["q": name]) { [weak self] response in
             switch response {
             case .Success(let value):
                 guard let `self` = self else {
                     return
                 }
 
-                self.repository?.dataStore(self, didSearchRepositories: value.items)
+                self.repository?.dataStore(self, didSearchRepositories: value)
             case .Error(let error):
                 print("error: \(error)")
             }

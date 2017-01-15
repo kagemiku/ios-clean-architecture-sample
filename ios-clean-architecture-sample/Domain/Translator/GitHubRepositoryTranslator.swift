@@ -8,28 +8,51 @@
 
 import Foundation
 
-final class GitHubRepositoryTranslator {
-    static func translate(_ entity: [GitHubRepositoryEntity]) -> GitHubRepositoriesModel {
-        let repositories: [GitHubRepositoryModel] = entity.map {
-            let name = $0.name
-            let fullName = $0.full_name
-            let owner = GitHubRepositoryOwnerModel(name: $0.owner.login)
-            let isPrivate = $0.private
-            let description = $0.description
-            let watchersCount = $0.watchers_count
-            let stargazersCount = $0.stargazers_count
-            let forksCount = $0.forks_count
+final class GitHubRepositoriesTranslator: Translator {
+    typealias Input  = GitHubRepositoriesEntity
+    typealias Output = GitHubRepositoriesModel
 
-            return GitHubRepositoryModel(name: name,
-                                         fullName: fullName,
-                                         owner: owner,
-                                         isPrivate: isPrivate,
-                                         description: description,
-                                         watchersCount: watchersCount,
-                                         stargazersCount: stargazersCount,
-                                         forksCount: forksCount)
+    static func translate(_ entity: Input) -> Output {
+        let repositories: [GitHubRepositoryModel] = entity.items.map {
+            GitHubRepositoryTranslator.translate($0)
         }
 
         return GitHubRepositoriesModel(repositories: repositories)
+    }
+}
+
+final class GitHubRepositoryTranslator: Translator {
+    typealias Input  = GitHubRepositoryEntity
+    typealias Output = GitHubRepositoryModel
+
+    static func translate(_ entity: Input) -> Output {
+        let name            = entity.name
+        let fullName        = entity.full_name
+        let owner           = GitHubRepositoryOwnerTranslator.translate(entity.owner)
+        let isPrivate       = entity.private
+        let description     = entity.description
+        let watchersCount   = entity.watchers_count
+        let stargazersCount = entity.stargazers_count
+        let forksCount      = entity.forks_count
+
+        return GitHubRepositoryModel(name: name,
+                                     fullName: fullName,
+                                     owner: owner,
+                                     isPrivate: isPrivate,
+                                     description: description,
+                                     watchersCount: watchersCount,
+                                     stargazersCount: stargazersCount,
+                                     forksCount: forksCount)
+    }
+}
+
+final class GitHubRepositoryOwnerTranslator: Translator {
+    typealias Input  = GitHubRepositoryOwnerEntity
+    typealias Output = GitHubRepositoryOwnerModel
+
+    static func translate(_ entity: Input) -> Output {
+        let name = entity.login
+
+        return GitHubRepositoryOwnerModel(name: name)
     }
 }
