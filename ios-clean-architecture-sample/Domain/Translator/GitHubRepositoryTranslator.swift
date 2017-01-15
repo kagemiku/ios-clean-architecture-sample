@@ -9,7 +9,7 @@
 import Foundation
 
 final class GitHubRepositoriesTranslator: Translator {
-    typealias Input  = GitHubRepositoryEntities
+    typealias Input  = GitHubRepositoriesEntity
     typealias Output = GitHubRepositoriesModel
 
     static func translate(_ entity: Input) -> Output {

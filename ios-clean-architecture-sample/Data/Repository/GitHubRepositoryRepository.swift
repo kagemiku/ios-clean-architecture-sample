@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GitHubRepositoryRepository: class {
-    func dataStore(_ dataStore: GitHubRepositoryRepositoryInput, didSearchRepositories repositories: GitHubRepositoryEntities)
+    func dataStore(_ dataStore: GitHubRepositoryRepositoryInput, didSearchRepositories repositories: GitHubRepositoriesEntity)
 }
 
 protocol GitHubRepositoryRepositoryInput: class {
@@ -28,7 +28,7 @@ class GitHubRepositoryRepositoryImpl: GitHubRepositoryRepository {
         self.useCase = useCase
     }
 
-    func dataStore(_ dataStore: GitHubRepositoryRepositoryInput, didSearchRepositories repositories: GitHubRepositoryEntities) {
+    func dataStore(_ dataStore: GitHubRepositoryRepositoryInput, didSearchRepositories repositories: GitHubRepositoriesEntity) {
         self.useCase?.repository(self, didSearchRepositories: repositories)
     }
 }

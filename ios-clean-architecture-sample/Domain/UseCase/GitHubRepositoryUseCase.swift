@@ -10,7 +10,7 @@ import Foundation
 
 protocol GitHubRepositoryUseCase: class {
     func searchRepositories(repositoryName: String?)
-    func repository(_ repository: GitHubRepositoryUseCaseDataInput, didSearchRepositories repositories: GitHubRepositoryEntities)
+    func repository(_ repository: GitHubRepositoryUseCaseDataInput, didSearchRepositories repositories: GitHubRepositoriesEntity)
 }
 
 protocol GitHubRepositoryUseCasePresentationInput: class {
@@ -41,7 +41,7 @@ class GitHubRepositoryUseCaseImpl: GitHubRepositoryUseCase {
         }
     }
 
-    func repository(_ repository: GitHubRepositoryUseCaseDataInput, didSearchRepositories repositories: GitHubRepositoryEntities) {
+    func repository(_ repository: GitHubRepositoryUseCaseDataInput, didSearchRepositories repositories: GitHubRepositoriesEntity) {
         let repositoriesModel = GitHubRepositoriesTranslator.translate(repositories)
         self.presenter?.useCase(self, didSearchRepositories: repositoriesModel)
     }

@@ -10,7 +10,7 @@ import Foundation
 
 import ObjectMapper
 
-struct GitHubRepositoryEntities: Mappable {
+struct GitHubRepositoriesEntity: Mappable {
     var items: [GitHubRepositoryEntity] = []
 
     init?(map: Map) { }

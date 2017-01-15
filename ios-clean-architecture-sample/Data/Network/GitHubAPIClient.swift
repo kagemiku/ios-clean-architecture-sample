@@ -39,14 +39,14 @@ enum GitHubAPIRouter: URLRequestConvertible {
     }
 }
 
-class GitHubAPIClient<T> {
+class GitHubAPIClient<T: Mappable> {
     static func searchRepositories(params: Parameters, completionHandler: ((Result<T>) -> ())? = nil) {
         Alamofire.request(GitHubAPIRouter.SearchRepositories(params))
             .validate()
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    if let entities = Mapper<GitHubRepositoryEntities>().map(JSONObject: value) as? T {
+                    if let entities = Mapper<T>().map(JSONObject: value) {
                         completionHandler?(Result<T>.Success(entities))
                     }
                 case .failure(let error):
