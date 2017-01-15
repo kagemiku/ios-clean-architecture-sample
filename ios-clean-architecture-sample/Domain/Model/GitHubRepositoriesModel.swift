@@ -17,6 +17,7 @@ struct GitHubRepositoryModel {
     let fullName: String
     let owner: GitHubRepositoryOwnerModel
     let isPrivate: Bool
+    let description: String
     let watchersCount: Int
     let stargazersCount: Int
     let forksCount: Int

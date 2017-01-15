@@ -15,6 +15,7 @@ final class GitHubRepositoryTranslator {
             let fullName = $0.full_name
             let owner = GitHubRepositoryOwnerModel(name: $0.owner.login)
             let isPrivate = $0.private
+            let description = $0.description
             let watchersCount = $0.watchers_count
             let stargazersCount = $0.stargazers_count
             let forksCount = $0.forks_count
@@ -23,6 +24,7 @@ final class GitHubRepositoryTranslator {
                                          fullName: fullName,
                                          owner: owner,
                                          isPrivate: isPrivate,
+                                         description: description,
                                          watchersCount: watchersCount,
                                          stargazersCount: stargazersCount,
                                          forksCount: forksCount)

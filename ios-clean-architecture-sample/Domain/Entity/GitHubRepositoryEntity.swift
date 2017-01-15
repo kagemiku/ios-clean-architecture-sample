@@ -26,6 +26,7 @@ struct GitHubRepositoryEntity: Mappable {
     var full_name = ""
     var owner = GitHubRepositoryOwnerEntity()
     var `private` = false
+    var description = ""
     var watchers_count = 0
     var stargazers_count = 0
     var forks_count = 0
@@ -38,6 +39,7 @@ struct GitHubRepositoryEntity: Mappable {
         self.full_name        <- map["full_name"]
         self.owner            <- map["owner"]
         self.private          <- map["private"]
+        self.description      <- map["description"]
         self.watchers_count   <- map["watchers_count"]
         self.stargazers_count <- map["stargazers_count"]
         self.forks_count      <- map["forks_count"]
