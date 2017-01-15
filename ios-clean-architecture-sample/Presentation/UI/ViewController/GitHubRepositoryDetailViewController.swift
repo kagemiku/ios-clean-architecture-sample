@@ -50,13 +50,14 @@ class GitHubRepositoryDetailViewController: UIViewController {
     }
 
     private func createDetailTableView() -> UITableView {
-        let tableView = UITableView(frame: CGRect.zero)
+        let tableView = UITableView(frame: CGRect.zero, style: .grouped)
 
         return tableView
     }
 
     private func createHeaderView() -> GitHubRepositoryDetailHeaderView {
         let headerView = GitHubRepositoryDetailHeaderView(frame: CGRect.zero)
+        headerView.backgroundColor = UIColor(hex: 0xFBFBFB)
         headerView.update(repositoryName: "text", watchersNumber: 0, starsNumber: 0, forksNumber: 0)
 
         return headerView
