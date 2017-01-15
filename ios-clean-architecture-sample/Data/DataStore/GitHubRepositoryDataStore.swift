@@ -34,7 +34,7 @@ extension GitHubRepositoryDataStoreImpl: GitHubRepositoryRepositoryInput {
                     return
                 }
 
-                self.repository?.dataStore(self, didSearchRepositories: value.items)
+                self.repository?.dataStore(self, didSearchRepositories: value)
             case .Error(let error):
                 print("error: \(error)")
             }
