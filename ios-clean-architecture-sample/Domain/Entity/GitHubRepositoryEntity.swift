@@ -24,7 +24,7 @@ struct GitHubRepositoryEntity: Mappable {
     var id = 0
     var name = ""
     var full_name = ""
-    var owner = GitHubRepositoryOwnerEntiry()
+    var owner = GitHubRepositoryOwnerEntity()
     var `private` = false
     var watchers_count = 0
     var stargazers_count = 0
@@ -44,7 +44,7 @@ struct GitHubRepositoryEntity: Mappable {
     }
 }
 
-struct GitHubRepositoryOwnerEntiry: Mappable {
+struct GitHubRepositoryOwnerEntity: Mappable {
     var login = ""
     var id = 0
 
