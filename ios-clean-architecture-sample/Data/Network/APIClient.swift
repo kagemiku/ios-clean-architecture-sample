@@ -16,6 +16,11 @@ public enum Result<T> {
     case Error(Error)
 }
 
+public protocol Routable {
+    var urlString: String { get }
+    var parameters: Parameters { get }
+}
+
 open class APIClient {
     class func request<T: Mappable>(url: URLConvertible, method: Alamofire.HTTPMethod, parameters: Parameters, completionHandler: ((Result<T>) -> ())? = nil) {
         Alamofire.request(url, method: method, parameters: parameters)
