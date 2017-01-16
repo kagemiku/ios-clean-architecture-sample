@@ -17,41 +17,55 @@ enum Result<T> {
     case Error(Error)
 }
 
-enum GitHubAPIRouter: URLRequestConvertible {
-    static let baseURLString = "https://api.github.com"
-
-    case SearchRepositories(Parameters)
-
-    func asURLRequest() throws -> URLRequest {
-        let (method, path, parameters): (String, String, Parameters) = {
-            switch self {
-            case .SearchRepositories(let params):
-                return ("GET", "/search/repositories", params)
-            }
-        }()
-
-        let url = NSURL(string: GitHubAPIRouter.baseURLString)
-        var urlRequest = URLRequest(url: url!.appendingPathComponent(path)!)
-        urlRequest.httpMethod = method
-        let encodedURLRequest = try URLEncoding.queryString.encode(urlRequest, with: parameters)
-
-        return encodedURLRequest
-    }
-}
-
-class GitHubAPIClient<T: Mappable> {
-    static func searchRepositories(params: Parameters, completionHandler: ((Result<T>) -> ())? = nil) {
-        Alamofire.request(GitHubAPIRouter.SearchRepositories(params))
+class APIClient {
+    class func request<T: Mappable>(url: URLConvertible, method: Alamofire.HTTPMethod, parameters: Parameters, completionHandler: ((Result<T>) -> ())? = nil) {
+        Alamofire.request(url, method: method, parameters: parameters)
             .validate()
             .responseJSON { response in
                 switch response.result {
                 case .success(let value):
-                    if let entities = Mapper<T>().map(JSONObject: value) {
-                        completionHandler?(Result<T>.Success(entities))
+                    if let entity = Mapper<T>().map(JSONObject: value) {
+                        completionHandler?(Result<T>.Success(entity))
                     }
                 case .failure(let error):
                     completionHandler?(Result<T>.Error(error))
                 }
             }
+    }
+}
+
+class GitHubAPIClient: APIClient {
+    enum Router {
+        static let host = "https://api.github.com"
+
+        case SearchRepositories(q: String)
+
+        var urlString: String {
+            var path = Router.host
+
+            switch self {
+            case .SearchRepositories:
+                path.append("/search/repositories")
+            }
+
+            return path
+        }
+
+        var parameters: Parameters {
+            switch self {
+            case let .SearchRepositories(q):
+                return ["q": q]
+            }
+        }
+    }
+
+}
+
+extension GitHubAPIClient {
+    typealias SearchRepositoriesCompletionHandler = (Result<GitHubRepositoriesEntity>) -> ()
+    class func searchRepositories(query: String, completionHandler: SearchRepositoriesCompletionHandler? = nil) {
+       let urlString = GitHubAPIClient.Router.SearchRepositories(q: query).urlString
+       let parameters = GitHubAPIClient.Router.SearchRepositories(q: query).parameters
+       GitHubAPIClient.request(url: urlString, method: .get, parameters: parameters, completionHandler: completionHandler)
     }
 }

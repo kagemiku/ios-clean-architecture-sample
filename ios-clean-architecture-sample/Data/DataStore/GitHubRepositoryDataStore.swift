@@ -27,7 +27,7 @@ extension GitHubRepositoryDataStoreImpl: GitHubRepositoryRepositoryInput {
             return
         }
 
-        GitHubAPIClient<GitHubRepositoriesEntity>.searchRepositories(params: ["q": name]) { [weak self] response in
+        GitHubAPIClient.searchRepositories(query: name) { [weak self] response in
             switch response {
             case .Success(let value):
                 guard let `self` = self else {
