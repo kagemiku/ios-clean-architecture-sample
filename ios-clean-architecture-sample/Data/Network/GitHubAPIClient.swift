@@ -47,9 +47,9 @@ class GitHubAPIClient: APIClient {
 
                     if let s = sort {
                         params["sort"] = s
-                    }
-                    if let o = order {
-                        params["order"] = o
+                        if let o = order {
+                            params["order"] = o
+                        }
                     }
                 }
 
