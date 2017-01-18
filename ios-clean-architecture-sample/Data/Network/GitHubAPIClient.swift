@@ -9,49 +9,71 @@
 import Foundation
 
 import Alamofire
-import ObjectMapper
-import SwiftyJSON
 
-enum Result<T> {
-    case Success(T)
-    case Error(Error)
-}
+class GitHubAPIClient: APIClient {
+    // MARK: - /
+    enum Router: Routable {
+        static let host = "https://api.github.com"
 
-enum GitHubAPIRouter: URLRequestConvertible {
-    static let baseURLString = "https://api.github.com"
+        var urlString: String {
+            return ""
+        }
 
-    case SearchRepositories(Parameters)
+        var parameters: Parameters {
+            return [:]
+        }
 
-    func asURLRequest() throws -> URLRequest {
-        let (method, path, parameters): (String, String, Parameters) = {
-            switch self {
-            case .SearchRepositories(let params):
-                return ("GET", "/search/repositories", params)
+        // MARK: /search
+        enum Search: Routable {
+            static let path = Router.host + "/search"
+
+            var urlString: String {
+                var path = Search.path
+
+                switch self {
+                case .Repositories:
+                    path.append("/repositories")
+                }
+
+                return path
             }
-        }()
 
-        let url = NSURL(string: GitHubAPIRouter.baseURLString)
-        var urlRequest = URLRequest(url: url!.appendingPathComponent(path)!)
-        urlRequest.httpMethod = method
-        let encodedURLRequest = try URLEncoding.queryString.encode(urlRequest, with: parameters)
+            var parameters: Parameters {
+                var params: Parameters = [:]
 
-        return encodedURLRequest
+                switch self {
+                case let .Repositories(q, sort, order):
+                    params["q"] = q
+
+                    if let s = sort {
+                        params["sort"] = s
+                        if let o = order {
+                            params["order"] = o
+                        }
+                    }
+                }
+
+                return params
+            }
+
+            // MARK: /search/repositories
+            case Repositories(q: String, sort: String?, order: String?)
+        }
     }
 }
 
-class GitHubAPIClient<T: Mappable> {
-    static func searchRepositories(params: Parameters, completionHandler: ((Result<T>) -> ())? = nil) {
-        Alamofire.request(GitHubAPIRouter.SearchRepositories(params))
-            .validate()
-            .responseJSON { response in
-                switch response.result {
-                case .success(let value):
-                    if let entities = Mapper<T>().map(JSONObject: value) {
-                        completionHandler?(Result<T>.Success(entities))
-                    }
-                case .failure(let error):
-                    completionHandler?(Result<T>.Error(error))
-                }
-            }
+// MARK: - Interface
+extension GitHubAPIClient {
+    typealias SearchRepositoriesCompletionHandler = (Result<GitHubRepositoriesEntity>) -> ()
+
+    class func searchRepositories(query: String,
+                                  sort: String? = nil,
+                                  order: String? = nil,
+                                  completionHandler: SearchRepositoriesCompletionHandler? = nil) {
+        let router     = GitHubAPIClient.Router.Search.Repositories(q: query, sort: sort, order: order)
+        let urlString  = router.urlString
+        let parameters = router.parameters
+
+        GitHubAPIClient.request(url: urlString, method: .get, parameters: parameters, completionHandler: completionHandler)
     }
 }
