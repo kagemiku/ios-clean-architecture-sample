@@ -276,8 +276,8 @@
 		107777901E1D39DD004E3115 /* Translator */ = {
 			isa = PBXGroup;
 			children = (
-				105518A01E227E4A00079648 /* GitHubRepositoryTranslator.swift */,
 				10CF391E1E2BCB4C00B6E869 /* Translator.swift */,
+				105518A01E227E4A00079648 /* GitHubRepositoryTranslator.swift */,
 			);
 			name = Translator;
 			sourceTree = "<group>";
