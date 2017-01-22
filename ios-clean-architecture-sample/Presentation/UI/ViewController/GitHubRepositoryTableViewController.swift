@@ -69,7 +69,7 @@ class GitHubRepositoryTableViewController: UIViewController {
     }
 
     private func layoutGitHubRepositoryTableView() {
-        let frame = self.view.frame
+        let frame = self.view.bounds
         self.repositoryTableView.frame = frame
     }
 

@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let rootVC = GitHubRepositoryTableViewControllerBuilder.build()
         let navigationVC = UINavigationController(rootViewController: rootVC)
+        navigationVC.navigationBar.backgroundColor = UIColor(hex: 0xF6F6F6)
+        navigationVC.navigationBar.isTranslucent = false
 
         self.window = UIWindow.init(frame: UIScreen.main.bounds)
         self.window?.rootViewController = navigationVC

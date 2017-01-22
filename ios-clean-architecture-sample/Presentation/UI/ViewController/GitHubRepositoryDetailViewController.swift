@@ -76,7 +76,7 @@ class GitHubRepositoryDetailViewController: UIViewController {
     }
 
     private func layoutDetailTableView() {
-        let frame = self.view.frame
+        let frame = self.view.bounds
         self.detailTableView.frame = frame
     }
 
