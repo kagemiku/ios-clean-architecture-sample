@@ -24,16 +24,16 @@ final class GitHubRepositoryTableViewCell: UITableViewCell {
         return self.contentView.frame.size.width - self.avatarImageViewHeight - GitHubRepositoryTableViewCell.contentViewPadding * 3.0
     }
 
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         self.contentView.addSubview(self.avatarImageView)
         self.contentView.addSubview(self.repositoryNameLabel)
         self.contentView.addSubview(self.separatorView)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     override func layoutSubviews() {
