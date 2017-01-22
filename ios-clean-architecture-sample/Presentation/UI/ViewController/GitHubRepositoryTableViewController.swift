@@ -82,7 +82,7 @@ final class GitHubRepositoryTableViewController: UIViewController {
     private func layoutLoadingView() {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         self.loadingView.frame = frame
-        self.loadingView.center = self.view.center
+        self.loadingView.center = self.repositoryTableView.center
     }
 }
 
