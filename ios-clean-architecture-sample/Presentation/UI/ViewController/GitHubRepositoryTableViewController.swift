@@ -44,6 +44,7 @@ final class GitHubRepositoryTableViewController: UIViewController {
 
     private func createRepositoryTableView() -> UITableView {
         let tableView = UITableView(frame: CGRect.zero)
+        tableView.separatorStyle = .none
         tableView.dataSource = self
         tableView.delegate   = self
         tableView.register(GitHubRepositoryTableViewCell.self, forCellReuseIdentifier: GitHubRepositoryTableViewCell.cellIdentifier)
