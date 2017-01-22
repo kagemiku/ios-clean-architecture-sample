@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GitHubRepositoryDetailHeaderLabelView: UIView {
+final class GitHubRepositoryDetailHeaderLabelView: UIView {
     fileprivate lazy var contentView: UIView  = self.createContentView()
     fileprivate lazy var upperView: UIView    = self.createUpperView()
     fileprivate lazy var lowerView: UIView    = self.createLowerView()

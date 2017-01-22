@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GitHubRepositoryDetailHeaderView: UIView {
+final class GitHubRepositoryDetailHeaderView: UIView {
     static let labelViewMargin: CGFloat = 10.0
 
     fileprivate lazy var repositoryNameLabel: UILabel = self.createRepositoryNameLabel()

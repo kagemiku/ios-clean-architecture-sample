@@ -10,7 +10,7 @@ import Foundation
 
 protocol GitHubRepositoryDetailDataStore: class { }
 
-class GitHubRepositoryDetailDataStoreImpl: GitHubRepositoryDetailDataStore {
+final class GitHubRepositoryDetailDataStoreImpl: GitHubRepositoryDetailDataStore {
     fileprivate weak var repository: GitHubRepositoryDetailRepository?
 
     func inject(repository: GitHubRepositoryDetailRepository) {

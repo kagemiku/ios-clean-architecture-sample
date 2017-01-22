@@ -14,7 +14,7 @@ protocol GitHubRepositoryDetailUseCasePresentationInput: class{ }
 
 protocol GitHubRepositoryDetailUseCaseDataInput: class { }
 
-class GitHubRepositoryDetailUseCaseImpl: GitHubRepositoryDetailUseCase {
+final class GitHubRepositoryDetailUseCaseImpl: GitHubRepositoryDetailUseCase {
     fileprivate let repository: GitHubRepositoryDetailUseCaseDataInput
     fileprivate weak var presenter: GitHubRepositoryDetailUseCasePresentationInput?
 

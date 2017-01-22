@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GitHubRepositoryTableViewCell: UITableViewCell {
+final class GitHubRepositoryTableViewCell: UITableViewCell {
     func configure(_ model: GitHubRepositoryModel) {
         self.textLabel?.text = model.fullName
     }

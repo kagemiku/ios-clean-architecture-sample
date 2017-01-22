@@ -12,7 +12,7 @@ protocol GitHubRepositoryDetailRepository: class { }
 
 protocol GitHubRepositoryDetailRepositoryInput: class { }
 
-class GitHubRepositoryDetailRepositoryImpl: GitHubRepositoryDetailRepository {
+final class GitHubRepositoryDetailRepositoryImpl: GitHubRepositoryDetailRepository {
     fileprivate let dataStore: GitHubRepositoryDetailRepositoryInput
     fileprivate weak var useCase: GitHubRepositoryDetailUseCase?
 

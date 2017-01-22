@@ -20,7 +20,7 @@ protocol GitHubRepositoryPresenterInput: class {
     func hideLoadingView()
 }
 
-class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
+final class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
     fileprivate let useCase: GitHubRepositoryUseCase
     fileprivate let wireframe: GitHubRepositoryWireframe
     fileprivate weak var viewController: GitHubRepositoryPresenterInput?

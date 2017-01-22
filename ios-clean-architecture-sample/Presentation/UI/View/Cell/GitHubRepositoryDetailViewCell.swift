@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GitHubRepositoryDetailViewCell: UITableViewCell {
+final class GitHubRepositoryDetailViewCell: UITableViewCell {
     func configure(text: String?, icon: UIImage?) {
         self.textLabel?.text = text
         self.imageView?.image = icon

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GitHubRepositoryDetailViewController: UIViewController {
+final class GitHubRepositoryDetailViewController: UIViewController {
     fileprivate lazy var detailTableView: UITableView = self.createDetailTableView()
     fileprivate lazy var headerView: GitHubRepositoryDetailHeaderView = self.createHeaderView()
     fileprivate var repository: GitHubRepositoryModel? {

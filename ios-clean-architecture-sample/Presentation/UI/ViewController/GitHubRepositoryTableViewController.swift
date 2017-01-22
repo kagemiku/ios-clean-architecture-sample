@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GitHubRepositoryTableViewController: UIViewController {
+final class GitHubRepositoryTableViewController: UIViewController {
     fileprivate lazy var repositoryTableView: UITableView = self.createRepositoryTableView()
     fileprivate lazy var repositorySearchController: UISearchController = self.createRepositorySearchController()
     fileprivate lazy var loadingView: UIActivityIndicatorView = self.createLoadingView()
