@@ -16,7 +16,7 @@ protocol GitHubRepositoryRepositoryInput: class {
     func searchRepositories(repositoryName: String)
 }
 
-class GitHubRepositoryRepositoryImpl: GitHubRepositoryRepository {
+final class GitHubRepositoryRepositoryImpl: GitHubRepositoryRepository {
     fileprivate let dataStore: GitHubRepositoryRepositoryInput
     fileprivate weak var useCase: GitHubRepositoryUseCase?
 

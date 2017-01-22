@@ -10,7 +10,7 @@ import Foundation
 
 import Alamofire
 
-class GitHubAPIClient: APIClient {
+final class GitHubAPIClient: APIClient {
     // MARK: - /
     enum Router: Routable {
         static let host = "https://api.github.com"

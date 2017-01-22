@@ -16,7 +16,7 @@ protocol GitHubRepositoryDetailPresenterInput: class {
     func setDataSource(_ dataSource: [GitHubRepositoryDetailModel])
 }
 
-class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter {
+final class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter {
     fileprivate let useCase: GitHubRepositoryDetailUseCase
     fileprivate weak var viewController: GitHubRepositoryDetailPresenterInput?
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GitHubRepositoryDetailViewController: UIViewController {
+final class GitHubRepositoryDetailViewController: UIViewController {
     fileprivate lazy var detailTableView: UITableView = self.createDetailTableView()
     fileprivate lazy var headerView: GitHubRepositoryDetailHeaderView = self.createHeaderView()
     fileprivate var repository: GitHubRepositoryModel? {
@@ -76,7 +76,7 @@ class GitHubRepositoryDetailViewController: UIViewController {
     }
 
     private func layoutDetailTableView() {
-        let frame = self.view.frame
+        let frame = self.view.bounds
         self.detailTableView.frame = frame
     }
 
@@ -98,8 +98,8 @@ extension GitHubRepositoryDetailViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GitHubRepositoryDetailViewCell.cellIdentifier, for: indexPath)
-        if let c = cell as? GitHubRepositoryDetailViewCell,
-            let data = dataSource[safe: indexPath.row] {
+        if let c = cell as? GitHubRepositoryDetailViewCell {
+            let data = dataSource[indexPath.row]
             switch data {
             case .Description(let text):
                 c.configure(text: text, icon: nil)

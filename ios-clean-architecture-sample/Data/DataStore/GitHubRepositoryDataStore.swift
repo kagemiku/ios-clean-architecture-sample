@@ -13,7 +13,7 @@ import SwiftyJSON
 
 protocol GitHubRepositoryDataStore: class { }
 
-class GitHubRepositoryDataStoreImpl: GitHubRepositoryDataStore {
+final class GitHubRepositoryDataStoreImpl: GitHubRepositoryDataStore {
     fileprivate weak var repository: GitHubRepositoryRepository?
 
     func inject(repository: GitHubRepositoryRepository) {

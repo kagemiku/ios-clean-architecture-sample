@@ -49,16 +49,19 @@ struct GitHubRepositoryEntity: Mappable {
 struct GitHubRepositoryOwnerEntity: Mappable {
     var login = ""
     var id = 0
+    var avatar_url = ""
 
     init?(map: Map) { }
 
     init() {
-        self.login = ""
-        self.id    = 0
+        self.login      = ""
+        self.id         = 0
+        self.avatar_url = ""
     }
 
     mutating func mapping(map: Map) {
-        self.login <- map["login"]
-        self.id    <- map["id"]
+        self.login      <- map["login"]
+        self.id         <- map["id"]
+        self.avatar_url <- map["avatar_url"]
     }
 }

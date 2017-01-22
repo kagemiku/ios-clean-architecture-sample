@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GitHubRepositoryDetailHeaderLabelView: UIView {
+final class GitHubRepositoryDetailHeaderLabelView: UIView {
     fileprivate lazy var contentView: UIView  = self.createContentView()
     fileprivate lazy var upperView: UIView    = self.createUpperView()
     fileprivate lazy var lowerView: UIView    = self.createLowerView()
@@ -16,13 +16,17 @@ class GitHubRepositoryDetailHeaderLabelView: UIView {
     fileprivate lazy var numberLabel: UILabel = self.createNumberLabel()
 
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.commonInit()
+        fatalError("init(coder:) has not been implemented")
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.commonInit()
+
+        self.addSubview(self.contentView)
+        self.contentView.addSubview(self.upperView)
+        self.contentView.addSubview(self.lowerView)
+        self.upperView.addSubview(self.titleLabel)
+        self.lowerView.addSubview(self.numberLabel)
     }
 
     override func layoutSubviews() {
@@ -33,14 +37,6 @@ class GitHubRepositoryDetailHeaderLabelView: UIView {
         self.layoutLowerView()
         self.layoutTitleLabel()
         self.layoutNumberLabel()
-    }
-
-    private func commonInit() {
-        self.addSubview(self.contentView)
-        self.contentView.addSubview(self.upperView)
-        self.contentView.addSubview(self.lowerView)
-        self.upperView.addSubview(self.titleLabel)
-        self.lowerView.addSubview(self.numberLabel)
     }
 
     private func createContentView() -> UIView {
@@ -112,7 +108,7 @@ class GitHubRepositoryDetailHeaderLabelView: UIView {
 
     func update(title: String? = nil, number: Int? = nil) {
         if let t = title {
-            self.titleLabel.text  = t
+            self.titleLabel.text = t
         }
 
         if let n = number {

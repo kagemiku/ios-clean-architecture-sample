@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GitHubRepositoryWireframe: WireFrame {
+struct GitHubRepositoryWireframe: WireFrame {
     typealias ViewController = GitHubRepositoryTableViewController
 
     fileprivate weak var viewController: GitHubRepositoryTableViewController?

@@ -9,18 +9,20 @@
 import Foundation
 
 protocol GitHubRepositoryPresenter: class {
-    func didUpdateRepositorySearchBarText(_ text: String?)
+    func didTapClearButton()
+    func didTapSearchButton(text: String?)
     func didSelectRepository(repositoryModel: GitHubRepositoryModel)
 }
 
 protocol GitHubRepositoryPresenterInput: class {
     func setRepositoriesModel(_ repositoriesModel: GitHubRepositoriesModel)
+    func setSearchBarText(_ text: String)
     func endSearching()
     func showLoadingView()
     func hideLoadingView()
 }
 
-class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
+final class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
     fileprivate let useCase: GitHubRepositoryUseCase
     fileprivate let wireframe: GitHubRepositoryWireframe
     fileprivate weak var viewController: GitHubRepositoryPresenterInput?
@@ -34,7 +36,13 @@ class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
         self.viewController = viewController
     }
 
-    func didUpdateRepositorySearchBarText(_ text: String?) {
+    func didTapClearButton() {
+        self.viewController?.setRepositoriesModel(GitHubRepositoriesModel())
+        self.viewController?.setSearchBarText("")
+        self.viewController?.endSearching()
+    }
+
+    func didTapSearchButton(text: String?) {
         self.viewController?.showLoadingView()
         self.useCase.searchRepositories(repositoryName: text)
     }

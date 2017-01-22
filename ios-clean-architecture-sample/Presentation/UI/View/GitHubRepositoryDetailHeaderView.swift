@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GitHubRepositoryDetailHeaderView: UIView {
+final class GitHubRepositoryDetailHeaderView: UIView {
     static let labelViewMargin: CGFloat = 10.0
 
     fileprivate lazy var repositoryNameLabel: UILabel = self.createRepositoryNameLabel()
@@ -16,17 +16,25 @@ class GitHubRepositoryDetailHeaderView: UIView {
     fileprivate lazy var starLabelView: GitHubRepositoryDetailHeaderLabelView  = self.createStarLabelView()
     fileprivate lazy var forkLabelView: GitHubRepositoryDetailHeaderLabelView  = self.createForkLabelView()
 
+    private var labelViewWidth: CGFloat {
+        return (self.frame.size.width - GitHubRepositoryDetailHeaderView.labelViewMargin * 4.0) / 3.0
+    }
+
+    private var labelViewHeight: CGFloat {
+        return self.frame.size.height / 3.0
+    }
+
+    private var labelViewY: CGFloat {
+        return self.frame.size.height / 3.0 * 2.0 - GitHubRepositoryDetailHeaderView.labelViewMargin
+    }
+
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.commonInit()
+        fatalError("init(coder:) has not been implemented")
     }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.commonInit()
-    }
 
-    private func commonInit() {
         self.addSubview(self.repositoryNameLabel)
         self.addSubview(self.watchLabelView)
         self.addSubview(self.starLabelView)
@@ -82,32 +90,26 @@ class GitHubRepositoryDetailHeaderView: UIView {
     }
 
     private func layoutWatchLabelView() {
-        let width = (self.frame.size.width - GitHubRepositoryDetailHeaderView.labelViewMargin * 4.0) / 3.0
-        let height = self.frame.size.height / 3.0
         let frame = CGRect(x: GitHubRepositoryDetailHeaderView.labelViewMargin,
-                           y: self.frame.size.height * 2.0 / 3.0,
-                           width: width,
-                           height: height)
+                           y: labelViewY,
+                           width: labelViewWidth,
+                           height: labelViewHeight)
         self.watchLabelView.frame = frame
     }
 
     private func layoutStarLabelView() {
-        let width = (self.frame.size.width - GitHubRepositoryDetailHeaderView.labelViewMargin * 4.0) / 3.0
-        let height = self.frame.size.height / 3.0
-        let frame = CGRect(x: GitHubRepositoryDetailHeaderView.labelViewMargin * 2.0 + width,
-                           y: self.frame.size.height * 2.0 / 3.0,
-                           width: width,
-                           height: height)
+        let frame = CGRect(x: GitHubRepositoryDetailHeaderView.labelViewMargin * 2.0 + labelViewWidth,
+                           y: labelViewY,
+                           width: labelViewWidth,
+                           height: labelViewHeight)
         self.starLabelView.frame = frame
     }
 
     private func layoutForkLabelView() {
-        let width = (self.frame.size.width - GitHubRepositoryDetailHeaderView.labelViewMargin * 4.0) / 3.0
-        let height = self.frame.size.height / 3.0
-        let frame = CGRect(x: GitHubRepositoryDetailHeaderView.labelViewMargin * 3.0 + width * 2.0,
-                           y: self.frame.size.height * 2.0 / 3.0,
-                           width: width,
-                           height: height)
+        let frame = CGRect(x: GitHubRepositoryDetailHeaderView.labelViewMargin * 3.0 + labelViewWidth * 2.0,
+                           y: labelViewY,
+                           width: labelViewWidth,
+                           height: labelViewHeight)
         self.forkLabelView.frame = frame
     }
 
