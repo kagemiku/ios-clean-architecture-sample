@@ -20,6 +20,7 @@ final class GitHubRepositoryTableViewController: UIViewController {
         super.viewDidLoad()
 
         self.navigationItem.title = "Repository Searcher"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(self.didTapClearButton(_:)))
         self.view.addSubview(self.repositoryTableView)
         self.repositoryTableView.tableHeaderView = self.repositorySearchBar
         self.view.addSubview(self.loadingView)
@@ -86,6 +87,13 @@ final class GitHubRepositoryTableViewController: UIViewController {
     }
 }
 
+// MARK: - Action Method
+extension GitHubRepositoryTableViewController {
+    @objc fileprivate func didTapClearButton(_ sender: UIButton) {
+        self.presenter?.didTapClearButton()
+    }
+}
+
 // MARK: - UITableViewDataSource
 extension GitHubRepositoryTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -135,8 +143,14 @@ extension GitHubRepositoryTableViewController: GitHubRepositoryPresenterInput {
         self.repositoryTableView.reloadData()
     }
 
+    func setSearchBarText(_ text: String) {
+        self.repositorySearchBar.text = text
+    }
+
     func endSearching() {
-        self.repositorySearchBar.resignFirstResponder()
+        if self.repositorySearchBar.isFirstResponder {
+            self.repositorySearchBar.resignFirstResponder()
+        }
     }
 
     func showLoadingView() {

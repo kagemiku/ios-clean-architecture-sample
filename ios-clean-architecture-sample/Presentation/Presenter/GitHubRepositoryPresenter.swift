@@ -9,12 +9,14 @@
 import Foundation
 
 protocol GitHubRepositoryPresenter: class {
+    func didTapClearButton()
     func didTapSearchButton(text: String?)
     func didSelectRepository(repositoryModel: GitHubRepositoryModel)
 }
 
 protocol GitHubRepositoryPresenterInput: class {
     func setRepositoriesModel(_ repositoriesModel: GitHubRepositoriesModel)
+    func setSearchBarText(_ text: String)
     func endSearching()
     func showLoadingView()
     func hideLoadingView()
@@ -32,6 +34,12 @@ final class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
 
     func inject(viewController: GitHubRepositoryPresenterInput) {
         self.viewController = viewController
+    }
+
+    func didTapClearButton() {
+        self.viewController?.setRepositoriesModel(GitHubRepositoriesModel())
+        self.viewController?.setSearchBarText("")
+        self.viewController?.endSearching()
     }
 
     func didTapSearchButton(text: String?) {
