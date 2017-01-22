@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class GitHubRepositoryTableViewCell: UITableViewCell {
     func configure(_ model: GitHubRepositoryModel) {
