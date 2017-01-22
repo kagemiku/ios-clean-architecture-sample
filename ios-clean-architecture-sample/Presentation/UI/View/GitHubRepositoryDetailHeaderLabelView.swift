@@ -112,7 +112,7 @@ class GitHubRepositoryDetailHeaderLabelView: UIView {
 
     func update(title: String? = nil, number: Int? = nil) {
         if let t = title {
-            self.titleLabel.text  = t
+            self.titleLabel.text = t
         }
 
         if let n = number {
