@@ -111,6 +111,15 @@ extension GitHubRepositoryTableViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - UIScrollViewDelegate
+extension GitHubRepositoryTableViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if self.repositorySearchBar.isFirstResponder {
+            self.repositorySearchBar.resignFirstResponder()
+        }
+    }
+}
+
 // MARK: - UISearchBarDelegate
 extension GitHubRepositoryTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
