@@ -11,6 +11,7 @@ import UIKit
 final class GitHubRepositoryTableViewController: UIViewController {
     fileprivate lazy var repositoryTableView: UITableView = self.createRepositoryTableView()
     fileprivate lazy var repositorySearchBar: UISearchBar = self.createRepositorySearchBar()
+    fileprivate lazy var emptyLabel: UILabel = self.createEmptyLabel()
     fileprivate lazy var loadingView: UIActivityIndicatorView = self.createLoadingView()
 
     fileprivate var presenter: GitHubRepositoryPresenter? = nil
@@ -23,6 +24,7 @@ final class GitHubRepositoryTableViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(self.didTapClearButton(_:)))
         self.view.addSubview(self.repositoryTableView)
         self.repositoryTableView.tableHeaderView = self.repositorySearchBar
+        self.repositoryTableView.addSubview(self.emptyLabel)
         self.view.addSubview(self.loadingView)
     }
 
@@ -31,6 +33,7 @@ final class GitHubRepositoryTableViewController: UIViewController {
 
         self.layoutGitHubRepositoryTableView()
         self.layoutRepositorySearchBar()
+        self.layoutEmptyLabel()
         self.layoutLoadingView()
     }
 
@@ -61,6 +64,17 @@ final class GitHubRepositoryTableViewController: UIViewController {
         return searchBar
     }
 
+    private func createEmptyLabel() -> UILabel {
+        let label = UILabel(frame: CGRect.zero)
+        label.textAlignment = .center
+        label.text = "Nothing to display"
+        label.font = UIFont(name: "Futura-Medium", size: 20.0)
+        label.textColor       = UIColor.lightGray
+        label.backgroundColor = UIColor.clear
+
+        return label
+    }
+
     private func createLoadingView() -> UIActivityIndicatorView {
         let activityIndicatorView = UIActivityIndicatorView(frame: CGRect.zero)
         activityIndicatorView.activityIndicatorViewStyle = .gray
@@ -80,9 +94,15 @@ final class GitHubRepositoryTableViewController: UIViewController {
         self.repositorySearchBar.frame = frame
     }
 
+    private func layoutEmptyLabel() {
+        let frame = CGRect(x: 0, y: 0, width: self.repositoryTableView.frame.width, height: 100)
+        self.emptyLabel.frame  = frame
+        self.emptyLabel.center = self.repositoryTableView.center
+    }
+
     private func layoutLoadingView() {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        self.loadingView.frame = frame
+        self.loadingView.frame  = frame
         self.loadingView.center = self.repositoryTableView.center
     }
 }
@@ -140,6 +160,7 @@ extension GitHubRepositoryTableViewController: UISearchBarDelegate {
 extension GitHubRepositoryTableViewController: GitHubRepositoryPresenterInput {
     func setRepositoriesModel(_ repositoriesModel: GitHubRepositoriesModel) {
         self.repositories = repositoriesModel.repositories
+        self.emptyLabel.isHidden = !self.repositories.isEmpty
         self.repositoryTableView.reloadData()
     }
 
