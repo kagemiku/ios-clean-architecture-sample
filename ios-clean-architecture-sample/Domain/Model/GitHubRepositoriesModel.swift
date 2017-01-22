@@ -25,4 +25,5 @@ struct GitHubRepositoryModel {
 
 struct GitHubRepositoryOwnerModel {
     let name: String
+    let avatarURLString: String
 }

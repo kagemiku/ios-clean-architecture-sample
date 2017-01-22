@@ -51,8 +51,10 @@ final class GitHubRepositoryOwnerTranslator: Translator {
     typealias Output = GitHubRepositoryOwnerModel
 
     static func translate(_ entity: Input) -> Output {
-        let name = entity.login
+        let name            = entity.login
+        let avatarURLString = entity.avatar_url
 
-        return GitHubRepositoryOwnerModel(name: name)
+        return GitHubRepositoryOwnerModel(name: name,
+                                          avatarURLString: avatarURLString)
     }
 }
