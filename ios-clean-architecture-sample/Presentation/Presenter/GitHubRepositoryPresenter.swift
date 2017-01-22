@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GitHubRepositoryPresenter: class {
-    func didUpdateRepositorySearchBarText(_ text: String?)
+    func didTapSearchButton(text: String?)
     func didSelectRepository(repositoryModel: GitHubRepositoryModel)
 }
 
@@ -34,7 +34,7 @@ final class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
         self.viewController = viewController
     }
 
-    func didUpdateRepositorySearchBarText(_ text: String?) {
+    func didTapSearchButton(text: String?) {
         self.viewController?.showLoadingView()
         self.useCase.searchRepositories(repositoryName: text)
     }

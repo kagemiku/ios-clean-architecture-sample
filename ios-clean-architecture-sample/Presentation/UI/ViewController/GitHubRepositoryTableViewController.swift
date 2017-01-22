@@ -10,7 +10,7 @@ import UIKit
 
 final class GitHubRepositoryTableViewController: UIViewController {
     fileprivate lazy var repositoryTableView: UITableView = self.createRepositoryTableView()
-    fileprivate lazy var repositorySearchController: UISearchController = self.createRepositorySearchController()
+    fileprivate lazy var repositorySearchBar: UISearchBar = self.createRepositorySearchBar()
     fileprivate lazy var loadingView: UIActivityIndicatorView = self.createLoadingView()
 
     fileprivate var presenter: GitHubRepositoryPresenter? = nil
@@ -21,7 +21,7 @@ final class GitHubRepositoryTableViewController: UIViewController {
 
         self.navigationItem.title = "Repository Searcher"
         self.view.addSubview(self.repositoryTableView)
-        self.repositoryTableView.tableHeaderView = self.repositorySearchController.searchBar
+        self.repositoryTableView.tableHeaderView = self.repositorySearchBar
         self.view.addSubview(self.loadingView)
     }
 
@@ -29,6 +29,7 @@ final class GitHubRepositoryTableViewController: UIViewController {
         super.viewDidLayoutSubviews()
 
         self.layoutGitHubRepositoryTableView()
+        self.layoutRepositorySearchBar()
         self.layoutLoadingView()
     }
 
@@ -50,13 +51,12 @@ final class GitHubRepositoryTableViewController: UIViewController {
         return tableView
     }
 
-    private func createRepositorySearchController() -> UISearchController {
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation     = false
-        searchController.hidesNavigationBarDuringPresentation = false
+    private func createRepositorySearchBar() -> UISearchBar {
+        let searchBar = UISearchBar(frame: CGRect.zero)
+        searchBar.placeholder = "Search"
+        searchBar.delegate = self
 
-        return searchController
+        return searchBar
     }
 
     private func createLoadingView() -> UIActivityIndicatorView {
@@ -71,6 +71,11 @@ final class GitHubRepositoryTableViewController: UIViewController {
     private func layoutGitHubRepositoryTableView() {
         let frame = self.view.bounds
         self.repositoryTableView.frame = frame
+    }
+
+    private func layoutRepositorySearchBar() {
+        let frame = CGRect(x: 0, y: 0, width: self.repositoryTableView.frame.size.width, height: 50)
+        self.repositorySearchBar.frame = frame
     }
 
     private func layoutLoadingView() {
@@ -99,15 +104,17 @@ extension GitHubRepositoryTableViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension GitHubRepositoryTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let repository = self.repositories[indexPath.row]
         self.presenter?.didSelectRepository(repositoryModel: repository)
     }
 }
 
-// MARK: - UISearchResultsUpdating
-extension GitHubRepositoryTableViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        self.presenter?.didUpdateRepositorySearchBarText(searchController.searchBar.text)
+// MARK: - UISearchBarDelegate
+extension GitHubRepositoryTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        self.presenter?.didTapSearchButton(text: searchBar.text)
     }
 }
 
@@ -119,7 +126,7 @@ extension GitHubRepositoryTableViewController: GitHubRepositoryPresenterInput {
     }
 
     func endSearching() {
-        self.repositorySearchController.isActive = false
+        self.repositorySearchBar.resignFirstResponder()
     }
 
     func showLoadingView() {
