@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GitHubRepositoryDetailViewControllerBuilder: ViewControllerBuilder {
+struct GitHubRepositoryDetailViewControllerBuilder: ViewControllerBuilder {
     typealias ViewController = GitHubRepositoryDetailViewController
 
     static func build() -> ViewController {

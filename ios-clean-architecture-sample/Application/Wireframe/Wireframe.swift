@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol WireFrame: class {
+protocol WireFrame {
     associatedtype ViewController: UIViewController
 
     init(viewController: ViewController)
