@@ -37,4 +37,5 @@ final class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter
     }
 }
 
+// MARK: - GitHubRepositoryDetailUseCasePresentationInput
 extension GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailUseCasePresentationInput { }

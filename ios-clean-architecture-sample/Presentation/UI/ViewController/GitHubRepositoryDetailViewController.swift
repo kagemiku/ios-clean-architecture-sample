@@ -120,7 +120,7 @@ extension GitHubRepositoryDetailViewController: UITableViewDelegate {
     }
 }
 
-// MARK: -
+// MARK: - GitHubRepositoryDetailPresenterInput
 extension GitHubRepositoryDetailViewController: GitHubRepositoryDetailPresenterInput {
     func setRepositoryDetailModel(_ repositoryDetailModel: [GitHubRepositoryDetailModel]) {
         self.dataSource = repositoryDetailModel

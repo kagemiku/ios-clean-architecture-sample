@@ -33,6 +33,7 @@ final class GitHubRepositoryRepositoryImpl: GitHubRepositoryRepository {
     }
 }
 
+// MARK: - GitHubRepositoryUseCaseDataInput
 extension GitHubRepositoryRepositoryImpl: GitHubRepositoryUseCaseDataInput {
     func searchRepositories(repositoryName: String) {
         self.dataStore.searchRepositories(repositoryName: repositoryName)

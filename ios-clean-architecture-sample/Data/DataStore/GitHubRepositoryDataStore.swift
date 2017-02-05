@@ -21,6 +21,7 @@ final class GitHubRepositoryDataStoreImpl: GitHubRepositoryDataStore {
     }
 }
 
+// MARK: - GitHubRepositoryRepositoryInput
 extension GitHubRepositoryDataStoreImpl: GitHubRepositoryRepositoryInput {
     func searchRepositories(repositoryName: String) {
         GitHubAPIClient.searchRepositories(query: repositoryName) { [weak self] response in

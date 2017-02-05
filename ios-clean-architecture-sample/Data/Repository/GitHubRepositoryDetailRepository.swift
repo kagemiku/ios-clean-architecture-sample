@@ -25,4 +25,5 @@ final class GitHubRepositoryDetailRepositoryImpl: GitHubRepositoryDetailReposito
     }
 }
 
+// MARK: - GitHubRepositoryDetailUseCaseDataInput
 extension GitHubRepositoryDetailRepositoryImpl: GitHubRepositoryDetailUseCaseDataInput { }
