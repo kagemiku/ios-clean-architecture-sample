@@ -21,7 +21,7 @@ final class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter
     fileprivate weak var viewController: GitHubRepositoryDetailPresenterInput?
 
     init(useCase: GitHubRepositoryDetailUseCase) {
-        self.useCase   = useCase
+        self.useCase = useCase
     }
 
     func inject(viewController: GitHubRepositoryDetailPresenterInput) {
