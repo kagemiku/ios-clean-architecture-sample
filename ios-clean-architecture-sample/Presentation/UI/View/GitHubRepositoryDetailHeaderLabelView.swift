@@ -105,7 +105,10 @@ final class GitHubRepositoryDetailHeaderLabelView: UIView {
         let frame = CGRect(x: 0, y: 0, width: self.lowerView.frame.size.width, height: self.lowerView.frame.size.height)
         self.numberLabel.frame = frame
     }
+}
 
+// MARK: - Public Method
+extension GitHubRepositoryDetailHeaderLabelView {
     func update(title: String? = nil, number: Int? = nil) {
         if let t = title {
             self.titleLabel.text = t
