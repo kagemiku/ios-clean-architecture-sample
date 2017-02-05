@@ -18,4 +18,5 @@ final class GitHubRepositoryDetailDataStoreImpl: GitHubRepositoryDetailDataStore
     }
 }
 
+// MARK: - GitHubRepositoryDetailRepositoryInput
 extension GitHubRepositoryDetailDataStoreImpl: GitHubRepositoryDetailRepositoryInput { }

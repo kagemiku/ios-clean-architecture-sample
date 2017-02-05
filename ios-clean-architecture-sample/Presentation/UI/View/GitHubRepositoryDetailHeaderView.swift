@@ -112,7 +112,10 @@ final class GitHubRepositoryDetailHeaderView: UIView {
                            height: labelViewHeight)
         self.forkLabelView.frame = frame
     }
+}
 
+// MARK: - Public Method
+extension GitHubRepositoryDetailHeaderView {
     func update(repositoryName: String? = nil, watchersNumber: Int? = nil, starsNumber: Int? = nil, forksNumber: Int? = nil) {
         if let r = repositoryName {
             self.repositoryNameLabel.text = r

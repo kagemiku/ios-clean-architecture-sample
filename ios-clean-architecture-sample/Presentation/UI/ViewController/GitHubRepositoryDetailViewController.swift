@@ -114,12 +114,16 @@ extension GitHubRepositoryDetailViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension GitHubRepositoryDetailViewController: UITableViewDelegate { }
+extension GitHubRepositoryDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
 
-// MARK: -
+// MARK: - GitHubRepositoryDetailPresenterInput
 extension GitHubRepositoryDetailViewController: GitHubRepositoryDetailPresenterInput {
-    func setDataSource(_ dataSource: [GitHubRepositoryDetailModel]) {
-        self.dataSource = dataSource
+    func setRepositoryDetailModel(_ repositoryDetailModel: [GitHubRepositoryDetailModel]) {
+        self.dataSource = repositoryDetailModel
         self.detailTableView.reloadData()
     }
 }

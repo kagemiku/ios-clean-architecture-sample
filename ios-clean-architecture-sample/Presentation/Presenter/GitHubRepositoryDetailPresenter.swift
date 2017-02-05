@@ -13,7 +13,7 @@ protocol GitHubRepositoryDetailPresenter: class {
 }
 
 protocol GitHubRepositoryDetailPresenterInput: class {
-    func setDataSource(_ dataSource: [GitHubRepositoryDetailModel])
+    func setRepositoryDetailModel(_ repositoryDetailModel: [GitHubRepositoryDetailModel])
 }
 
 final class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter {
@@ -21,7 +21,7 @@ final class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter
     fileprivate weak var viewController: GitHubRepositoryDetailPresenterInput?
 
     init(useCase: GitHubRepositoryDetailUseCase) {
-        self.useCase   = useCase
+        self.useCase = useCase
     }
 
     func inject(viewController: GitHubRepositoryDetailPresenterInput) {
@@ -33,8 +33,9 @@ final class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter
         dataSource.append(GitHubRepositoryDetailModel.Description(text: model.description))
         dataSource.append(GitHubRepositoryDetailModel.Owner(model: model.owner))
 
-        self.viewController?.setDataSource(dataSource)
+        self.viewController?.setRepositoryDetailModel(dataSource)
     }
 }
 
+// MARK: - GitHubRepositoryDetailUseCasePresentationInput
 extension GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailUseCasePresentationInput { }

@@ -53,6 +53,7 @@ final class GitHubRepositoryPresenterImpl: GitHubRepositoryPresenter {
     }
 }
 
+// MARK: - GitHubRepositoryUseCasePresentationInput
 extension GitHubRepositoryPresenterImpl: GitHubRepositoryUseCasePresentationInput {
     func useCase(_ useCase: GitHubRepositoryUseCase, didSearchRepositories repositories: GitHubRepositoriesModel) {
         self.viewController?.setRepositoriesModel(repositories)

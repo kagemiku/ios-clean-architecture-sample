@@ -169,6 +169,7 @@
 		107777821E1D392A004E3115 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				107777941E1D39FA004E3115 /* Network */,
 				107777881E1D3993004E3115 /* Builder */,
 				107777871E1D398E004E3115 /* Wireframe */,
 				10FF90501E2672820007F8D9 /* Extension */,
@@ -191,7 +192,6 @@
 				1077778F1E1D39D7004E3115 /* UseCase */,
 				107777901E1D39DD004E3115 /* Translator */,
 				107777911E1D39E2004E3115 /* Model */,
-				107777921E1D39EB004E3115 /* Entity */,
 			);
 			name = Domain;
 			sourceTree = "<group>";
@@ -199,9 +199,9 @@
 		107777851E1D3952004E3115 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				107777941E1D39FA004E3115 /* Network */,
 				1077778E1E1D39D0004E3115 /* Repository */,
 				107777931E1D39F5004E3115 /* DataStore */,
+				107777921E1D39EB004E3115 /* Entity */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -722,6 +722,7 @@
 				10D890771E34F4F500FF3EBA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -21,15 +21,15 @@ struct GitHubRepositoriesEntity: Mappable {
 }
 
 struct GitHubRepositoryEntity: Mappable {
-    var id = 0
-    var name = ""
-    var full_name = ""
-    var owner = GitHubRepositoryOwnerEntity()
-    var `private` = false
-    var description = ""
-    var watchers_count = 0
+    var id               = 0
+    var name             = ""
+    var full_name        = ""
+    var owner            = GitHubRepositoryOwnerEntity()
+    var `private`        = false
+    var description      = ""
+    var watchers_count   = 0
     var stargazers_count = 0
-    var forks_count = 0
+    var forks_count      = 0
 
     init?(map: Map) { }
 
@@ -47,8 +47,8 @@ struct GitHubRepositoryEntity: Mappable {
 }
 
 struct GitHubRepositoryOwnerEntity: Mappable {
-    var login = ""
-    var id = 0
+    var login      = ""
+    var id         = 0
     var avatar_url = ""
 
     init?(map: Map) { }
