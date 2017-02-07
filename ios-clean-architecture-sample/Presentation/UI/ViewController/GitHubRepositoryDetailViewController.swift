@@ -37,6 +37,10 @@ final class GitHubRepositoryDetailViewController: UIViewController {
         self.view.addSubview(self.detailTableView)
         self.layoutHeaderView()
         self.detailTableView.tableHeaderView = self.headerView
+
+        if let repo = self.repository {
+            self.presenter?.getRepositoryReadme(model: repo)
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -89,7 +93,6 @@ final class GitHubRepositoryDetailViewController: UIViewController {
 
     func setRepositoryModel(_ repositoryModel: GitHubRepositoryModel) {
         self.repository = repositoryModel
-        self.presenter?.getRepositoryReadme(model: repositoryModel)
     }
 }
 
