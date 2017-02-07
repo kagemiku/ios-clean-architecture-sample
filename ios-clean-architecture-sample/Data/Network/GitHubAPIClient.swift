@@ -23,6 +23,29 @@ final class GitHubAPIClient: APIClient {
             return [:]
         }
 
+        // MARK: /repos
+        enum Repos: Routable {
+            static let path = Router.host + "/repos"
+
+            var urlString: String {
+                var path = Repos.path
+
+                switch self {
+                case let .Readme(owner, repo):
+                    path.append("/\(owner)/\(repo)/readme")
+                }
+
+                return path
+            }
+
+            var parameters: Parameters {
+                return [:]
+            }
+
+            // MARK: /repos/:owner/:repo/readme
+            case Readme(owner: String, repo: String)
+        }
+
         // MARK: /search
         enum Search: Routable {
             static let path = Router.host + "/search"
@@ -65,6 +88,7 @@ final class GitHubAPIClient: APIClient {
 // MARK: - Interface
 extension GitHubAPIClient {
     typealias SearchRepositoriesCompletionHandler = (Result<GitHubRepositoriesEntity>) -> ()
+    typealias GetRepositoryReadmeCompletionHandler = (Result<String>) -> ()
 
     class func searchRepositories(query: String,
                                   sort: String? = nil,
@@ -75,5 +99,16 @@ extension GitHubAPIClient {
         let parameters = router.parameters
 
         GitHubAPIClient.request(url: urlString, method: .get, parameters: parameters, completionHandler: completionHandler)
+    }
+
+    class func getRepositoryReadme(owner: String,
+                         repo: String,
+                         completionHandler: GetRepositoryReadmeCompletionHandler? = nil) {
+        let router     = GitHubAPIClient.Router.Repos.Readme(owner: owner, repo: repo)
+        let urlString  = router.urlString
+        let parameters = router.parameters
+        let headers    = ["Accept": "application/vnd.github.v3.raw"]
+
+        GitHubAPIClient.requestRawString(url: urlString, method: .get, parameters: parameters, headers: headers, completionHandler: completionHandler)
     }
 }
