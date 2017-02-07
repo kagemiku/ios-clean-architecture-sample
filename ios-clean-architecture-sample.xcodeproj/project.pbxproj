@@ -26,6 +26,8 @@
 		105518A71E23615000079648 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105518A31E235FFC00079648 /* Alamofire.framework */; };
 		105518A81E23615000079648 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 105518A41E235FFC00079648 /* SwiftyJSON.framework */; };
 		105518AB1E2388E600079648 /* GitHubAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105518AA1E2388E600079648 /* GitHubAPIClient.swift */; };
+		1061D7A01E4A117900757523 /* Down.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1061D79F1E4A117900757523 /* Down.framework */; };
+		1061D7A21E4A11D900757523 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1061D7A11E4A11D900757523 /* Kingfisher.framework */; };
 		107777711E1D3654004E3115 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107777701E1D3654004E3115 /* AppDelegate.swift */; };
 		107777781E1D3654004E3115 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107777771E1D3654004E3115 /* Assets.xcassets */; };
 		1077777B1E1D3654004E3115 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107777791E1D3654004E3115 /* LaunchScreen.storyboard */; };
@@ -77,6 +79,8 @@
 		105518A31E235FFC00079648 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		105518A41E235FFC00079648 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		105518AA1E2388E600079648 /* GitHubAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GitHubAPIClient.swift; path = Data/Network/GitHubAPIClient.swift; sourceTree = "<group>"; };
+		1061D79F1E4A117900757523 /* Down.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Down.framework; path = Carthage/Build/iOS/Down.framework; sourceTree = "<group>"; };
+		1061D7A11E4A11D900757523 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		1077776D1E1D3654004E3115 /* ios-clean-architecture-sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-clean-architecture-sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		107777701E1D3654004E3115 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AppDelegate.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		107777771E1D3654004E3115 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -108,8 +112,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10FF904E1E23BC9B0007F8D9 /* ObjectMapper.framework in Frameworks */,
 				105518A71E23615000079648 /* Alamofire.framework in Frameworks */,
+				1061D7A01E4A117900757523 /* Down.framework in Frameworks */,
+				1061D7A21E4A11D900757523 /* Kingfisher.framework in Frameworks */,
+				10FF904E1E23BC9B0007F8D9 /* ObjectMapper.framework in Frameworks */,
 				105518A81E23615000079648 /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -127,6 +133,8 @@
 		105518A21E235FFC00079648 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1061D7A11E4A11D900757523 /* Kingfisher.framework */,
+				1061D79F1E4A117900757523 /* Down.framework */,
 				10FF904C1E23BC9B0007F8D9 /* ObjectMapper.framework */,
 				10FF904D1E23BC9B0007F8D9 /* Result.framework */,
 				105518A31E235FFC00079648 /* Alamofire.framework */,
@@ -474,6 +482,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ObjectMapper.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Down.framework",
 			);
 			outputPaths = (
 			);

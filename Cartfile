@@ -1,4 +1,5 @@
-github "SwiftyJSON/SwiftyJSON"
 github "Alamofire/Alamofire"
-github "Hearst-DD/ObjectMapper"
+github "iwasrobbed/Down"
 github "onevcat/Kingfisher"
+github "Hearst-DD/ObjectMapper"
+github "SwiftyJSON/SwiftyJSON"
