@@ -8,11 +8,18 @@
 
 import Foundation
 
-protocol GitHubRepositoryDetailUseCase: class { }
+protocol GitHubRepositoryDetailUseCase: class {
+    func getRepositoryReadme(model: GitHubRepositoryModel)
+    func repository(_ repository: GitHubRepositoryDetailUseCaseDataInput, didGetRepositoryReadme readme: GitHubRepositoryReadmeEntity)
+}
 
-protocol GitHubRepositoryDetailUseCasePresentationInput: class{ }
+protocol GitHubRepositoryDetailUseCasePresentationInput: class{
+    func useCase(_ useCase: GitHubRepositoryDetailUseCase, didGetRepositoryReadme readme: GitHubRepositoryReadmeModel)
+}
 
-protocol GitHubRepositoryDetailUseCaseDataInput: class { }
+protocol GitHubRepositoryDetailUseCaseDataInput: class {
+    func getRepositoryReadme(owner: String, repositoryName: String)
+}
 
 final class GitHubRepositoryDetailUseCaseImpl: GitHubRepositoryDetailUseCase {
     fileprivate let repository: GitHubRepositoryDetailUseCaseDataInput
@@ -24,5 +31,14 @@ final class GitHubRepositoryDetailUseCaseImpl: GitHubRepositoryDetailUseCase {
 
     func inject(presenter: GitHubRepositoryDetailUseCasePresentationInput) {
         self.presenter = presenter
+    }
+
+    func getRepositoryReadme(model: GitHubRepositoryModel) {
+        self.repository.getRepositoryReadme(owner: model.owner.name, repositoryName: model.name)
+    }
+
+    func repository(_ repository: GitHubRepositoryDetailUseCaseDataInput, didGetRepositoryReadme readme: GitHubRepositoryReadmeEntity) {
+        let repositoryReadmeModel = GitHubRepositoryReadmeTranslator.translate(readme)
+        self.presenter?.useCase(self, didGetRepositoryReadme: repositoryReadmeModel)
     }
 }

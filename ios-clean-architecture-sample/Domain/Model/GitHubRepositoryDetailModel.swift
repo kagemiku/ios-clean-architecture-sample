@@ -12,3 +12,7 @@ enum GitHubRepositoryDetailModel {
     case Description(text: String)
     case Owner(model: GitHubRepositoryOwnerModel)
 }
+
+struct GitHubRepositoryReadmeModel {
+    let readmeString: String
+}

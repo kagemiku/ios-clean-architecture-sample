@@ -26,9 +26,10 @@ open class APIClient {
 
     class func request<T: Mappable>(url: URLConvertible,
                                     method: Alamofire.HTTPMethod,
-                                    parameters: Parameters,
+                                    parameters: Parameters? = nil,
+                                    headers: HTTPHeaders? = nil,
                                     completionHandler: CompletionHandler<T>? = nil) {
-        Alamofire.request(url, method: method, parameters: parameters)
+        Alamofire.request(url, method: method, parameters: parameters, headers: headers)
             .validate()
             .responseJSON { response in
                 switch response.result {
@@ -38,6 +39,23 @@ open class APIClient {
                     }
                 case .failure(let error):
                     completionHandler?(Result<T>.Error(error))
+                }
+            }
+    }
+
+    class func requestRawString(url: URLConvertible,
+                                method: Alamofire.HTTPMethod,
+                                parameters: Parameters? = nil,
+                                headers: HTTPHeaders? = nil,
+                                completionHandler: CompletionHandler<String>? = nil) {
+        Alamofire.request(url, method: method, parameters: parameters, headers: headers)
+            .validate()
+            .responseString { response in
+                switch response.result {
+                case .success(let value):
+                    completionHandler?(Result<String>.Success(value))
+                case .failure(let error):
+                    completionHandler?(Result<String>.Error(error))
                 }
             }
     }
