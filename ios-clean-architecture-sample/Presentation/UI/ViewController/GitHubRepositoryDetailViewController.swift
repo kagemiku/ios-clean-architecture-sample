@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Down
+
 final class GitHubRepositoryDetailViewController: UIViewController {
     fileprivate lazy var detailTableView: UITableView = self.createDetailTableView()
     fileprivate lazy var headerView: GitHubRepositoryDetailHeaderView = self.createHeaderView()
@@ -126,5 +128,11 @@ extension GitHubRepositoryDetailViewController: GitHubRepositoryDetailPresenterI
     func setRepositoryDetailModel(_ repositoryDetailModel: [GitHubRepositoryDetailModel]) {
         self.dataSource = repositoryDetailModel
         self.detailTableView.reloadData()
+    }
+
+    func setRepositoryReadmeModel(_ repositoryReadmeModel: GitHubRepositoryReadmeModel) {
+        let frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height - 50)
+        let downView = try? DownView(frame: frame, markdownString: repositoryReadmeModel.readmeString)
+        self.detailTableView.tableFooterView = downView
     }
 }

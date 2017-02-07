@@ -15,6 +15,7 @@ protocol GitHubRepositoryDetailPresenter: class {
 
 protocol GitHubRepositoryDetailPresenterInput: class {
     func setRepositoryDetailModel(_ repositoryDetailModel: [GitHubRepositoryDetailModel])
+    func setRepositoryReadmeModel(_ repositoryReadmeModel: GitHubRepositoryReadmeModel)
 }
 
 final class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter {
@@ -45,6 +46,6 @@ final class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter
 // MARK: - GitHubRepositoryDetailUseCasePresentationInput
 extension GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailUseCasePresentationInput {
     func useCase(_ useCase: GitHubRepositoryDetailUseCase, didGetRepositoryReadme readme: GitHubRepositoryReadmeModel) {
-        print(readme)
+        self.viewController?.setRepositoryReadmeModel(readme)
     }
 }
