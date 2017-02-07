@@ -10,6 +10,7 @@ import Foundation
 
 protocol GitHubRepositoryDetailPresenter: class {
     func setupDataSource(model: GitHubRepositoryModel)
+    func getRepositoryReadme(model: GitHubRepositoryModel)
 }
 
 protocol GitHubRepositoryDetailPresenterInput: class {
@@ -35,7 +36,15 @@ final class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter
 
         self.viewController?.setRepositoryDetailModel(dataSource)
     }
+
+    func getRepositoryReadme(model: GitHubRepositoryModel) {
+        self.useCase.getRepositoryReadme(model: model)
+    }
 }
 
 // MARK: - GitHubRepositoryDetailUseCasePresentationInput
-extension GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailUseCasePresentationInput { }
+extension GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailUseCasePresentationInput {
+    func useCase(_ useCase: GitHubRepositoryDetailUseCase, didGetRepositoryReadme readme: GitHubRepositoryReadmeModel) {
+        print(readme)
+    }
+}

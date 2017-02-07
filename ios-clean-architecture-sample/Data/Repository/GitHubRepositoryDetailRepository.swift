@@ -8,9 +8,13 @@
 
 import Foundation
 
-protocol GitHubRepositoryDetailRepository: class { }
+protocol GitHubRepositoryDetailRepository: class {
+    func dataStore(_ dataStore: GitHubRepositoryDetailRepositoryInput, didGetRepositoryReadme readme: GitHubRepositoryReadmeEntity)
+}
 
-protocol GitHubRepositoryDetailRepositoryInput: class { }
+protocol GitHubRepositoryDetailRepositoryInput: class {
+    func getRepositoryReadme(owner: String, repositoryName: String)
+}
 
 final class GitHubRepositoryDetailRepositoryImpl: GitHubRepositoryDetailRepository {
     fileprivate let dataStore: GitHubRepositoryDetailRepositoryInput
@@ -23,7 +27,15 @@ final class GitHubRepositoryDetailRepositoryImpl: GitHubRepositoryDetailReposito
     func inject(useCase: GitHubRepositoryDetailUseCase) {
         self.useCase = useCase
     }
+
+    func dataStore(_ dataStore: GitHubRepositoryDetailRepositoryInput, didGetRepositoryReadme readme: GitHubRepositoryReadmeEntity) {
+        self.useCase?.repository(self, didGetRepositoryReadme: readme)
+    }
 }
 
 // MARK: - GitHubRepositoryDetailUseCaseDataInput
-extension GitHubRepositoryDetailRepositoryImpl: GitHubRepositoryDetailUseCaseDataInput { }
+extension GitHubRepositoryDetailRepositoryImpl: GitHubRepositoryDetailUseCaseDataInput {
+    func getRepositoryReadme(owner: String, repositoryName: String) {
+        self.dataStore.getRepositoryReadme(owner: owner, repositoryName: repositoryName)
+    }
+}

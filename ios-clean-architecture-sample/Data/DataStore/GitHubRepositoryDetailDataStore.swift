@@ -19,4 +19,25 @@ final class GitHubRepositoryDetailDataStoreImpl: GitHubRepositoryDetailDataStore
 }
 
 // MARK: - GitHubRepositoryDetailRepositoryInput
-extension GitHubRepositoryDetailDataStoreImpl: GitHubRepositoryDetailRepositoryInput { }
+extension GitHubRepositoryDetailDataStoreImpl: GitHubRepositoryDetailRepositoryInput {
+    func getRepositoryReadme(owner: String, repositoryName: String) {
+        GitHubAPIClient.getRepositoryReadme(owner: owner, repo: repositoryName) { [weak self] response in
+            guard let `self` = self else {
+                return
+            }
+
+            let readmeString: String = {
+                switch response {
+                case .Success(let value):
+                    return value
+                case .Error(let error):
+                    print("error: \(error)")
+                    return ""
+                }
+            }()
+
+            let repositoryReadmeEntity = GitHubRepositoryReadmeEntity(readmeString: readmeString)
+            self.repository?.dataStore(self, didGetRepositoryReadme: repositoryReadmeEntity)
+        }
+    }
+}

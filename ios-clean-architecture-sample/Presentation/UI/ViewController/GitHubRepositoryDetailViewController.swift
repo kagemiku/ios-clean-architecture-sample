@@ -87,6 +87,7 @@ final class GitHubRepositoryDetailViewController: UIViewController {
 
     func setRepositoryModel(_ repositoryModel: GitHubRepositoryModel) {
         self.repository = repositoryModel
+        self.presenter?.getRepositoryReadme(model: repositoryModel)
     }
 }
 
