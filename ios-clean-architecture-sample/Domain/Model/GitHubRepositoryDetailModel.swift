@@ -9,8 +9,8 @@
 import Foundation
 
 enum GitHubRepositoryDetailModel {
-    case Description(text: String)
-    case Owner(model: GitHubRepositoryOwnerModel)
+    case description(text: String)
+    case owner(model: GitHubRepositoryOwnerModel)
 }
 
 struct GitHubRepositoryReadmeModel {

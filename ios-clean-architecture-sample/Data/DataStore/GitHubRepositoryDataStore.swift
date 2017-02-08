@@ -26,13 +26,13 @@ extension GitHubRepositoryDataStoreImpl: GitHubRepositoryRepositoryInput {
     func searchRepositories(repositoryName: String) {
         GitHubAPIClient.searchRepositories(query: repositoryName) { [weak self] response in
             switch response {
-            case .Success(let value):
+            case .success(let value):
                 guard let `self` = self else {
                     return
                 }
 
                 self.repository?.dataStore(self, didSearchRepositories: value)
-            case .Error(let error):
+            case .error(let error):
                 print("error: \(error)")
             }
         }

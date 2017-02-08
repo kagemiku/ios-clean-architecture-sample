@@ -32,8 +32,8 @@ final class GitHubRepositoryDetailPresenterImpl: GitHubRepositoryDetailPresenter
 
     func setupDataSource(model: GitHubRepositoryModel) {
         var dataSource: [GitHubRepositoryDetailModel] = []
-        dataSource.append(GitHubRepositoryDetailModel.Description(text: model.description))
-        dataSource.append(GitHubRepositoryDetailModel.Owner(model: model.owner))
+        dataSource.append(GitHubRepositoryDetailModel.description(text: model.description))
+        dataSource.append(GitHubRepositoryDetailModel.owner(model: model.owner))
 
         self.viewController?.setRepositoryDetailModel(dataSource)
     }

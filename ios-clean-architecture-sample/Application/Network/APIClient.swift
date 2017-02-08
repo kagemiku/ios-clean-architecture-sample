@@ -12,8 +12,8 @@ import Alamofire
 import ObjectMapper
 
 public enum Result<T> {
-    case Success(T)
-    case Error(Error)
+    case success(T)
+    case error(Error)
 }
 
 public protocol Routable {
@@ -35,10 +35,10 @@ open class APIClient {
                 switch response.result {
                 case .success(let value):
                     if let entity = Mapper<T>().map(JSONObject: value) {
-                        completionHandler?(Result<T>.Success(entity))
+                        completionHandler?(Result<T>.success(entity))
                     }
                 case .failure(let error):
-                    completionHandler?(Result<T>.Error(error))
+                    completionHandler?(Result<T>.error(error))
                 }
             }
     }
@@ -53,9 +53,9 @@ open class APIClient {
             .responseString { response in
                 switch response.result {
                 case .success(let value):
-                    completionHandler?(Result<String>.Success(value))
+                    completionHandler?(Result<String>.success(value))
                 case .failure(let error):
-                    completionHandler?(Result<String>.Error(error))
+                    completionHandler?(Result<String>.error(error))
                 }
             }
     }

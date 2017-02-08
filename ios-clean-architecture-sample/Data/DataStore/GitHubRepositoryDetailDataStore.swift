@@ -28,9 +28,9 @@ extension GitHubRepositoryDetailDataStoreImpl: GitHubRepositoryDetailRepositoryI
 
             let readmeString: String = {
                 switch response {
-                case .Success(let value):
+                case .success(let value):
                     return value
-                case .Error(let error):
+                case .error(let error):
                     print("error: \(error)")
                     return ""
                 }
