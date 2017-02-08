@@ -107,9 +107,9 @@ extension GitHubRepositoryDetailViewController: UITableViewDataSource {
         if let c = cell as? GitHubRepositoryDetailViewCell {
             let data = dataSource[indexPath.row]
             switch data {
-            case .Description(let text):
+            case .description(let text):
                 c.configure(text: text, icon: nil)
-            case .Owner(let model):
+            case .owner(let model):
                 c.configure(text: model.name, icon: nil)
                 break
             }
