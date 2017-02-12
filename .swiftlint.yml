@@ -1,0 +1,18 @@
+disabled_rules: # 適用したくないチェック項目を記述
+opt_in_rules:
+    - attributes
+    - closure_end_indentation
+    - closure_spacing
+    - conditional_returns_on_newline
+    - empty_count
+    - explicit_init
+    - file_header
+    - first_where
+    - force_unwrapping
+
+included: # Lint対象のファイルのあるパスを記述、通常はプロジェクト名になると思います
+    - ios-clean-architecture-sample
+excluded: # Lint対象から外すファイルのあるパスを記述、CocoaPodsやCarthage
+    - Carthage
+    - Pods
+
