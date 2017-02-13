@@ -1,4 +1,6 @@
-disabled_rules: # 適用したくないチェック項目を記述
+disabled_rules:
+    - variable_name
+
 opt_in_rules:
     - attributes
     - closure_end_indentation
