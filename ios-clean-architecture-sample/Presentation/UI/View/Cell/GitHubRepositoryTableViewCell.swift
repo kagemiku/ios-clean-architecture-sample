@@ -45,6 +45,8 @@ final class GitHubRepositoryTableViewCell: UITableViewCell {
     }
 
     override func prepareForReuse() {
+        super.prepareForReuse()
+
         self.avatarImageView.image = nil
     }
 

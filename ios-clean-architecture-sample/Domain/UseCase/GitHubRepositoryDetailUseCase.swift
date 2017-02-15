@@ -13,7 +13,7 @@ protocol GitHubRepositoryDetailUseCase: class {
     func repository(_ repository: GitHubRepositoryDetailUseCaseDataInput, didGetRepositoryReadme readme: GitHubRepositoryReadmeEntity)
 }
 
-protocol GitHubRepositoryDetailUseCasePresentationInput: class{
+protocol GitHubRepositoryDetailUseCasePresentationInput: class {
     func useCase(_ useCase: GitHubRepositoryDetailUseCase, didGetRepositoryReadme readme: GitHubRepositoryReadmeModel)
 }
 

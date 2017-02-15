@@ -22,7 +22,7 @@ public protocol Routable {
 }
 
 open class APIClient {
-    typealias CompletionHandler<T> = (Result<T>) -> ()
+    typealias CompletionHandler<T> = (Result<T>) -> Void
 
     class func request<T: Mappable>(url: URLConvertible,
                                     method: Alamofire.HTTPMethod,
