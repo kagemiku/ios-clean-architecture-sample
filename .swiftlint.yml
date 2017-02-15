@@ -1,4 +1,5 @@
 disabled_rules:
+    - nesting
     - variable_name
 
 opt_in_rules:
@@ -8,13 +9,26 @@ opt_in_rules:
     - conditional_returns_on_newline
     - empty_count
     - explicit_init
-    - file_header
     - first_where
     - force_unwrapping
+    - nimble_operator
+    - number_separator
+    - object_literal
+    - overridden_super_call
+    - private_outlet
+    - prohibited_super_call
+    - redundant_nil_coalescing
 
-included: # Lint対象のファイルのあるパスを記述、通常はプロジェクト名になると思います
+included:
     - ios-clean-architecture-sample
-excluded: # Lint対象から外すファイルのあるパスを記述、CocoaPodsやCarthage
+
+excluded:
     - Carthage
     - Pods
 
+line_length:
+    warning: 150
+
+type_name:
+    max_length:
+        warning: 50
