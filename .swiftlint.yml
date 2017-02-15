@@ -1,0 +1,34 @@
+disabled_rules:
+    - nesting
+    - variable_name
+
+opt_in_rules:
+    - attributes
+    - closure_end_indentation
+    - closure_spacing
+    - conditional_returns_on_newline
+    - empty_count
+    - explicit_init
+    - first_where
+    - force_unwrapping
+    - nimble_operator
+    - number_separator
+    - object_literal
+    - overridden_super_call
+    - private_outlet
+    - prohibited_super_call
+    - redundant_nil_coalescing
+
+included:
+    - ios-clean-architecture-sample
+
+excluded:
+    - Carthage
+    - Pods
+
+line_length:
+    warning: 150
+
+type_name:
+    max_length:
+        warning: 50

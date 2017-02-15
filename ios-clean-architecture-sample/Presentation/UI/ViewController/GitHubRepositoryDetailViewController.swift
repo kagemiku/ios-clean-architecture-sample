@@ -28,7 +28,7 @@ final class GitHubRepositoryDetailViewController: UIViewController {
         }
     }
 
-    fileprivate var presenter: GitHubRepositoryDetailPresenter? = nil
+    fileprivate var presenter: GitHubRepositoryDetailPresenter?
     fileprivate var dataSource: [GitHubRepositoryDetailModel] = []
 
     override func viewDidLoad() {

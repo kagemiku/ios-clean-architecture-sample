@@ -14,14 +14,17 @@ final class GitHubRepositoryTableViewController: UIViewController {
     fileprivate lazy var emptyLabel: UILabel = self.createEmptyLabel()
     fileprivate lazy var loadingView: UIActivityIndicatorView = self.createLoadingView()
 
-    fileprivate var presenter: GitHubRepositoryPresenter? = nil
+    fileprivate var presenter: GitHubRepositoryPresenter?
     fileprivate var repositories: [GitHubRepositoryModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.title = "Repository Searcher"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear", style: .plain, target: self, action: #selector(self.didTapClearButton(_:)))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Clear",
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(self.didTapClearButton(_:)))
         self.view.addSubview(self.repositoryTableView)
         self.repositoryTableView.tableHeaderView = self.repositorySearchBar
         self.repositoryTableView.addSubview(self.emptyLabel)
@@ -109,7 +112,8 @@ final class GitHubRepositoryTableViewController: UIViewController {
 
 // MARK: - Action Method
 extension GitHubRepositoryTableViewController {
-    @objc fileprivate func didTapClearButton(_ sender: UIButton) {
+    @objc
+    fileprivate func didTapClearButton(_ sender: UIButton) {
         self.presenter?.didTapClearButton()
     }
 }

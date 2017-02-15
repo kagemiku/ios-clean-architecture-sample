@@ -87,8 +87,8 @@ final class GitHubAPIClient: APIClient {
 
 // MARK: - Interface
 extension GitHubAPIClient {
-    typealias SearchRepositoriesCompletionHandler = (Result<GitHubRepositoriesEntity>) -> ()
-    typealias GetRepositoryReadmeCompletionHandler = (Result<String>) -> ()
+    typealias SearchRepositoriesCompletionHandler = (Result<GitHubRepositoriesEntity>) -> Void
+    typealias GetRepositoryReadmeCompletionHandler = (Result<String>) -> Void
 
     class func searchRepositories(query: String,
                                   sort: String? = nil,
@@ -102,8 +102,8 @@ extension GitHubAPIClient {
     }
 
     class func getRepositoryReadme(owner: String,
-                         repo: String,
-                         completionHandler: GetRepositoryReadmeCompletionHandler? = nil) {
+                                   repo: String,
+                                   completionHandler: GetRepositoryReadmeCompletionHandler? = nil) {
         let router     = GitHubAPIClient.Router.Repos.Readme(owner: owner, repo: repo)
         let urlString  = router.urlString
         let parameters = router.parameters
